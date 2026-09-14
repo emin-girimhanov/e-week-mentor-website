@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import type { FC } from 'react';
 import { DAYS_SCHEDULE } from '../data/portalData';
 import type { ScheduleItem } from '../data/portalData';
-import { Clock, MapPin, Users, CheckSquare, Square, Info } from 'lucide-react';
+import { Clock, MapPin, Users, CheckSquare, Square, Info, Calendar } from 'lucide-react';
+import { generateSingleICS, downloadICSFile, getGoogleCalendarUrl } from '../utils/calendar';
 
 interface ScheduleViewProps {
   searchQuery: string;
@@ -151,6 +152,7 @@ export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery }) => {
                 <ScheduleCard
                   key={item.id}
                   item={item}
+                  dateStr={day.date}
                   checkedItems={checkedItems}
                   onToggleCheck={toggleCheck}
                 />
@@ -165,11 +167,12 @@ export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery }) => {
 
 interface ScheduleCardProps {
   item: ScheduleItem;
+  dateStr: string;
   checkedItems: Record<string, boolean>;
   onToggleCheck: (taskId: string) => void;
 }
 
-const ScheduleCard: FC<ScheduleCardProps> = ({ item, checkedItems, onToggleCheck }) => {
+const ScheduleCard: FC<ScheduleCardProps> = ({ item, dateStr, checkedItems, onToggleCheck }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -248,6 +251,28 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, checkedItems, onToggleCheck
           <span>{item.mentorInstructions}</span>
         </div>
       )}
+
+      {/* 1-Click Calendar Actions */}
+      <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-zinc-800/80 mb-2">
+        <span className="text-[11px] text-zinc-500 font-medium">Kalender (-10 Min Alarm):</span>
+        <button
+          onClick={() => downloadICSFile(generateSingleICS(item, dateStr), `FaRaFIN-${item.id}.ics`)}
+          className="text-[11px] text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 px-2 py-0.5 rounded border border-zinc-700 transition-colors inline-flex items-center gap-1 cursor-pointer"
+          title="Als .ics-Datei mit 10-Min-Alarm herunterladen"
+        >
+          <Calendar className="w-3 h-3 text-zinc-400" />
+          <span>In Kalender (.ics)</span>
+        </button>
+        <a
+          href={getGoogleCalendarUrl(item, dateStr)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[11px] text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 px-2 py-0.5 rounded border border-zinc-700 transition-colors inline-flex items-center gap-1"
+          title="Direkt zu Google Kalender hinzufügen"
+        >
+          <span>Google Kalender</span>
+        </a>
+      </div>
 
       {/* Checklist */}
       {item.checklist && item.checklist.length > 0 && (

@@ -5,6 +5,8 @@ import type { ActiveTab } from './components/Header';
 import { ScheduleView } from './components/ScheduleView';
 import { HandbookView } from './components/HandbookView';
 import { MapView } from './components/MapView';
+import { NextEventBanner } from './components/NextEventBanner';
+import { InstallModal } from './components/InstallModal';
 import { Calendar, BookOpen, MapPin, Wifi } from 'lucide-react';
 
 export function App() {
@@ -18,6 +20,7 @@ export function App() {
 
   const [activeTab, setActiveTab] = useState<ActiveTab>('schedule');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [isInstallModalOpen, setIsInstallModalOpen] = useState<boolean>(false);
 
   const handleLock = () => {
     try {
@@ -45,10 +48,19 @@ export function App() {
 
       {/* Main Content Container */}
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6">
+        {/* Next Event Ticker & Full Calendar / PWA Banner */}
+        <NextEventBanner onOpenInstallModal={() => setIsInstallModalOpen(true)} />
+
         {activeTab === 'schedule' && <ScheduleView searchQuery={searchQuery} />}
         {activeTab === 'handbook' && <HandbookView searchQuery={searchQuery} />}
         {activeTab === 'map' && <MapView searchQuery={searchQuery} />}
       </main>
+
+      {/* App Install Guide Modal */}
+      <InstallModal
+        isOpen={isInstallModalOpen}
+        onClose={() => setIsInstallModalOpen(false)}
+      />
 
       {/* Desktop & Tablet Footer */}
       <footer className="mt-auto border-t border-zinc-900 bg-zinc-950/80 py-5 text-center text-xs text-zinc-500">
