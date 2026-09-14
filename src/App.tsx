@@ -6,7 +6,7 @@ import { HandbookView } from './components/HandbookView';
 import { MapView } from './components/MapView';
 import { NextEventBanner } from './components/NextEventBanner';
 import { AudienceFilter } from './components/AudienceFilter';
-import type { AudienceFilterValue } from './components/AudienceFilter';
+import type { AudienceFilterValue, LanguageFilterValue } from './components/AudienceFilter';
 import { InstallModal } from './components/InstallModal';
 import { DAYS_SCHEDULE } from './data/portalData';
 import { Calendar, BookOpen, MapPin, Wifi } from 'lucide-react';
@@ -15,6 +15,7 @@ export function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('schedule');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedAudience, setSelectedAudience] = useState<AudienceFilterValue>('all');
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguageFilterValue>('all');
   const [isInstallModalOpen, setIsInstallModalOpen] = useState<boolean>(false);
 
   // Dynamic counts for each target audience
@@ -23,6 +24,14 @@ export function App() {
     bachelor: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.filter(it => it.audiences.includes('bachelor')).length, 0),
     international: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.filter(it => it.audiences.includes('international')).length, 0),
     master: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.filter(it => it.audiences.includes('master')).length, 0)
+  };
+
+  // Dynamic counts for each language track
+  const languageCounts = {
+    all: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.length, 0),
+    en: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.filter(it => it.language === 'en').length, 0),
+    bilingual: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.filter(it => it.language === 'bilingual').length, 0),
+    de: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.filter(it => it.language === 'de').length, 0)
   };
 
   return (
@@ -37,23 +46,28 @@ export function App() {
 
       {/* Main Content Container */}
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6">
-        {/* Top-Level Target Audience Filter (Alles / Bachelor / Internationals / Master) */}
+        {/* Top-Level Target Audience & Language Filters */}
         <AudienceFilter
-          value={selectedAudience}
-          onChange={setSelectedAudience}
-          counts={audienceCounts}
+          audienceValue={selectedAudience}
+          onAudienceChange={setSelectedAudience}
+          languageValue={selectedLanguage}
+          onLanguageChange={setSelectedLanguage}
+          audienceCounts={audienceCounts}
+          languageCounts={languageCounts}
         />
 
         {/* Next Event Ticker & Full Calendar / PWA Banner */}
         <NextEventBanner
           onOpenInstallModal={() => setIsInstallModalOpen(true)}
           selectedAudience={selectedAudience}
+          selectedLanguage={selectedLanguage}
         />
 
         {activeTab === 'schedule' && (
           <ScheduleView
             searchQuery={searchQuery}
             selectedAudience={selectedAudience}
+            selectedLanguage={selectedLanguage}
           />
         )}
         {activeTab === 'handbook' && <HandbookView searchQuery={searchQuery} />}
@@ -61,6 +75,7 @@ export function App() {
           <MapView
             searchQuery={searchQuery}
             selectedAudience={selectedAudience}
+            selectedLanguage={selectedLanguage}
           />
         )}
       </main>

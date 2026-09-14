@@ -1,4 +1,5 @@
 export type TargetAudience = 'bachelor' | 'master' | 'international';
+export type EventLanguage = 'de' | 'en' | 'bilingual';
 
 export interface ScheduleItem {
   id: string;
@@ -11,6 +12,7 @@ export interface ScheduleItem {
   roomBadge: string;
   category: 'orga' | 'lotsendienst' | 'begruessung' | 'mensa' | 'rallye' | 'planung' | 'party' | 'kultur';
   audiences: TargetAudience[];
+  language: EventLanguage;
   responsible: string[];
   description: string;
   checklist?: string[];
@@ -94,6 +96,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'Campus / Magistrale',
         category: 'lotsendienst',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'bilingual',
         responsible: ['Orga-Team', 'Helfer-Team', 'Alle Mentoren'],
         description: 'Erstsemester vom Campus Welcome Center und von der Immatrikulationsfeier zur FIN lotsen.',
         checklist: [
@@ -115,6 +118,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29-307',
         category: 'begruessung',
         audiences: ['bachelor'],
+        language: 'de',
         responsible: ['Dekanat', 'Micha', 'Davide', 'Emin', 'Mentoren-Tandems'],
         description: 'Offizielle Begrüßung der Bachelor-Erstis durch Dekanat und Fachschaftsrat. Sicherheitsbelehrung und Vorstellung des Mentoring-Programms.',
         checklist: [
@@ -136,6 +140,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29-412 / Foyer',
         category: 'orga',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'bilingual',
         responsible: ['Emin', 'Helfer-Team'],
         description: 'Ausgabe der gepackten Ersti-Beutel mit Goodies, Gutscheinen und Einkaufswagenchips an alle anwesenden Erstsemester.',
         checklist: [
@@ -155,6 +160,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'Mensa',
         category: 'mensa',
         audiences: ['bachelor'],
+        language: 'de',
         responsible: ['Mentoren-Tandems'],
         description: 'Erste gemeinsame Mensa-Runde mit den Mentoren-Gruppen. Erstsemester-Karten an den Terminals validieren.',
         checklist: [
@@ -175,6 +181,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'Vorplatz G29',
         category: 'rallye',
         audiences: ['bachelor', 'international'],
+        language: 'bilingual',
         responsible: ['Davide (Leitung)', 'Emin', 'Mentoren-Tandems'],
         description: 'Große Campusrallye mit rund 150 bis 200 Erstis in 15 bis 20 Kleingruppen über 5 verschiedene Campus-Routen.',
         checklist: [
@@ -196,6 +203,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29-307',
         category: 'party',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'bilingual',
         responsible: ['Yousef', 'Lars', 'Helfer-Pool'],
         description: 'Gemütlicher Ausklang des ersten Tages mit Brettspielen, Konsolenecke, Multiplayer-Games und Vernetzung.',
         checklist: [
@@ -223,6 +231,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29-307',
         category: 'begruessung',
         audiences: ['bachelor', 'international'],
+        language: 'bilingual',
         responsible: ['Emin (Moderation)', 'Claudia', 'Dr. Christian Beyer', 'regiocom SE', 'Jana Görs (QM)'],
         description: 'Impulsvorträge und Unternehmensvorstellung vor Beginn der Stundenplanerstellung.',
         checklist: [
@@ -243,6 +252,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'Fachräume FIN',
         category: 'planung',
         audiences: ['bachelor'],
+        language: 'de',
         responsible: ['Emin (Gesamtleitung)', 'Fach-Mentoren pro Raum', 'Claudia & Darija (BiBa)'],
         description: 'Kerntag der E-Woche: Stundenplanerstellung, LSF-Einführung, Prüfungsordnung und Modulbelegung.',
         checklist: [
@@ -266,6 +276,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'Hasselbachplatz',
         category: 'party',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'bilingual',
         responsible: ['Diana (Koordination)', 'Mentoren-Teams'],
         description: 'Traditionelle Kneipentour durch Magdeburger Bars und Kneipen rund um den Hasselbachplatz.',
         checklist: [
@@ -295,6 +306,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29-307',
         category: 'begruessung',
         audiences: ['international', 'master'],
+        language: 'en',
         responsible: ['Studiendekanat', 'Claudia Krull', 'FaRaFIN', 'Christin Gebauer'],
         description: 'Offizielle Begrüßung aller neuen Master- und internationalen Studierenden. Zentrale Anlaufstellen für Visum, Prüfungsamt und Nachzügler.',
         checklist: [
@@ -314,6 +326,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29-307 / Seminarräume',
         category: 'planung',
         audiences: ['master', 'international'],
+        language: 'en',
         responsible: ['Claudia', 'Magnus', 'Simin', 'Emin', 'Master-Mentoren'],
         description: 'Fachspezifische Studienplanung auf Englisch für MDKE (Data Science), MDE (Digital Engineering) und Visual Computing.',
         checklist: [
@@ -333,6 +346,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29-307',
         category: 'begruessung',
         audiences: ['bachelor', 'international'],
+        language: 'bilingual',
         responsible: ['Emin (Moderation)', 'ArbeiterKind.de', 'Kamelia Dobreva (FDIBA)', 'Studentenwerk'],
         description: 'Vorstellung von ArbeiterKind.de, dem deutsch-bulgarischen Doppelabschluss FDIBA und Sozialberatung des Studentenwerks.',
         checklist: [
@@ -351,6 +365,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'Magdeburg City',
         category: 'rallye',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'bilingual',
         responsible: ['Davide (Leitung)', 'Timon Christ (regiocom)', 'Mentoren-Teams'],
         description: 'Erkundung der Stadt Magdeburg mit Fotospots, Elbpromenade, Kultur-Rätseln und exklusiver regiocom Challenge-Station.',
         checklist: [
@@ -371,6 +386,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29 Innenhof',
         category: 'party',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'bilingual',
         responsible: ['Diana', 'Lukas', 'Lars', 'Bar-Team', 'Grill-Team'],
         description: 'Große Fachschaftsparty im Innenhof von Gebäude 29 mit Musik, Barbetrieb, Grill mit veganen und vegetarischen Optionen.',
         checklist: [
@@ -401,6 +417,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29-103',
         category: 'orga',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'de',
         responsible: ['FaRaFIN Orga-Team'],
         description: 'Gemeinsames Frühstück, Kaffee und kurzes Lage-Briefing nach der Instaparty.',
         checklist: [
@@ -420,6 +437,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G22 Innenhof',
         category: 'kultur',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'bilingual',
         responsible: ['FaRaFIN Stand-Team', 'OVGU Zentral'],
         description: 'Große Hochschulmesse für studentische Initiativen, Sportgruppen, Vereine und Gremien.',
         checklist: [
@@ -438,6 +456,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'Festung Mark / G29',
         category: 'party',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'bilingual',
         responsible: ['Lars', 'Helfer-Team'],
         description: 'Gemütlicher Abend nach Helferkapazität: Besuch des Stübchens in der Festung Mark oder kleiner Spieleabend in G29.',
         checklist: [
@@ -464,6 +483,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'G29-307',
         category: 'kultur',
         audiences: ['master', 'international'],
+        language: 'en',
         responsible: ['Simin', 'Helfer-Team'],
         description: 'Gemeinsames Mitbring-Frühstück und Networking für Masterstudierende und internationale Erstis.',
         checklist: [
@@ -483,6 +503,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         roomBadge: 'Nordpark',
         category: 'party',
         audiences: ['bachelor', 'master', 'international'],
+        language: 'bilingual',
         responsible: ['Lars', 'Lukas', 'Kooperation FaRaMath', 'Grill-Team'],
         description: 'Großes Abschlussgrillen der E-Woche gemeinsam mit der Fachschaft Mathematik (FMA / FaRaMath).',
         checklist: [

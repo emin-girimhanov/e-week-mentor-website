@@ -2,43 +2,56 @@ import { useState } from 'react';
 import type { FC } from 'react';
 import { DAYS_SCHEDULE } from '../data/portalData';
 import { generateFullWeekICS, downloadICSFile } from '../utils/calendar';
-import type { AudienceFilterValue } from './AudienceFilter';
+import type { AudienceFilterValue, LanguageFilterValue } from './AudienceFilter';
 import { Calendar, Download, Smartphone, MapPin, Navigation, ExternalLink, Check } from 'lucide-react';
 
 interface NextEventBannerProps {
   onOpenInstallModal: () => void;
   selectedAudience?: AudienceFilterValue;
+  selectedLanguage?: LanguageFilterValue;
 }
 
-export const NextEventBanner: FC<NextEventBannerProps> = ({ onOpenInstallModal, selectedAudience = 'all' }) => {
+export const NextEventBanner: FC<NextEventBannerProps> = ({
+  onOpenInstallModal,
+  selectedAudience = 'all',
+  selectedLanguage = 'all'
+}) => {
   const [downloaded, setDownloaded] = useState(false);
 
-  // Find next event matching selected audience
+  // Find next event matching selected audience & language
   let nextEvent = DAYS_SCHEDULE[0]?.items[0];
   let nextDate = DAYS_SCHEDULE[0]?.date;
   let nextDayName = DAYS_SCHEDULE[0]?.dayName;
 
-  if (selectedAudience !== 'all') {
-    for (const day of DAYS_SCHEDULE) {
-      const match = day.items.find(it => it.audiences.includes(selectedAudience));
-      if (match) {
-        nextEvent = match;
-        nextDate = day.date;
-        nextDayName = day.dayName;
-        break;
-      }
+  for (const day of DAYS_SCHEDULE) {
+    const match = day.items.find(it => {
+      const matchAud = selectedAudience === 'all' || it.audiences.includes(selectedAudience);
+      const matchLang = selectedLanguage === 'all' || it.language === selectedLanguage;
+      return matchAud && matchLang;
+    });
+    if (match) {
+      nextEvent = match;
+      nextDate = day.date;
+      nextDayName = day.dayName;
+      break;
     }
   }
 
   const handleDownloadFullCalendar = () => {
-    const daysToExport = selectedAudience !== 'all'
+    const daysToExport = (selectedAudience !== 'all' || selectedLanguage !== 'all')
       ? DAYS_SCHEDULE.map(d => ({
           ...d,
-          items: d.items.filter(it => it.audiences.includes(selectedAudience))
+          items: d.items.filter(it => {
+            const matchAud = selectedAudience === 'all' || it.audiences.includes(selectedAudience);
+            const matchLang = selectedLanguage === 'all' || it.language === selectedLanguage;
+            return matchAud && matchLang;
+          })
         })).filter(d => d.items.length > 0)
       : DAYS_SCHEDULE;
 
-    const filename = selectedAudience !== 'all'
+    const filename = selectedLanguage === 'en'
+      ? 'FaRaFIN-E-Woche-2026-ENGLISH.ics'
+      : selectedAudience !== 'all'
       ? `FaRaFIN-E-Woche-2026-${selectedAudience.toUpperCase()}.ics`
       : 'FaRaFIN-E-Woche-2026-Mentoren.ics';
 

@@ -2,16 +2,21 @@ import { useState, useEffect } from 'react';
 import type { FC } from 'react';
 import { DAYS_SCHEDULE } from '../data/portalData';
 import type { ScheduleItem } from '../data/portalData';
-import type { AudienceFilterValue } from './AudienceFilter';
+import type { AudienceFilterValue, LanguageFilterValue } from './AudienceFilter';
 import { Clock, MapPin, Users, CheckSquare, Square, Info, Calendar } from 'lucide-react';
 import { generateSingleICS, downloadICSFile, getGoogleCalendarUrl } from '../utils/calendar';
 
 interface ScheduleViewProps {
   searchQuery: string;
   selectedAudience?: AudienceFilterValue;
+  selectedLanguage?: LanguageFilterValue;
 }
 
-export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery, selectedAudience = 'all' }) => {
+export const ScheduleView: FC<ScheduleViewProps> = ({
+  searchQuery,
+  selectedAudience = 'all',
+  selectedLanguage = 'all'
+}) => {
   const [selectedDayId, setSelectedDayId] = useState<string>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>(() => {
@@ -55,12 +60,17 @@ export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery, selectedAudie
         return false;
       }
 
-      // 2. Category Filter
+      // 2. Language Filter
+      if (selectedLanguage !== 'all' && item.language !== selectedLanguage) {
+        return false;
+      }
+
+      // 3. Category Filter
       if (selectedCategory !== 'all' && item.category !== selectedCategory) {
         return false;
       }
 
-      // 3. Search Query
+      // 4. Search Query
       if (!searchQuery.trim()) return true;
       const q = searchQuery.toLowerCase();
       const matchTitle = item.title.toLowerCase().includes(q);
@@ -68,8 +78,10 @@ export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery, selectedAudie
       const matchRoom = item.roomBadge.toLowerCase().includes(q);
       const matchDesc = item.description.toLowerCase().includes(q);
       const matchResponsible = item.responsible.some(r => r.toLowerCase().includes(q));
+      const matchLanguage = (item.language === 'en' && (q.includes('engl') || q.includes('internat'))) ||
+                            (item.language === 'bilingual' && (q.includes('bil') || q.includes('engl') || q.includes('internat')));
 
-      return matchTitle || matchLocation || matchRoom || matchDesc || matchResponsible;
+      return matchTitle || matchLocation || matchRoom || matchDesc || matchResponsible || matchLanguage;
     });
 
     return { ...day, items };
@@ -214,6 +226,21 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, dateStr, checkedItems, onTo
               {aud === 'international' ? 'International' : aud}
             </span>
           ))}
+          {item.language === 'en' && (
+            <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded border bg-amber-950/60 text-amber-300 border-amber-800/50" title="Veranstaltungssprache: Englisch / English only">
+              🇬🇧 English
+            </span>
+          )}
+          {item.language === 'bilingual' && (
+            <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded border bg-teal-950/60 text-teal-300 border-teal-800/50" title="Bilingual: Deutsch & Englisch / Bilingual DE & EN">
+              🔀 Bilingual
+            </span>
+          )}
+          {item.language === 'de' && (
+            <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded border bg-zinc-800/60 text-zinc-400 border-zinc-700/50" title="Veranstaltungssprache: Deutsch">
+              🇩🇪 DE
+            </span>
+          )}
           <span className="flex items-center gap-1 text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-800">
             <MapPin className="w-3 h-3 text-zinc-400" />
             {item.roomBadge}
