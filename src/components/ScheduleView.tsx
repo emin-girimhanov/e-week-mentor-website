@@ -41,11 +41,11 @@ export const ScheduleView: FC<ScheduleViewProps> = ({
 
   const categories = [
     { id: 'all', label: 'Alle' },
-    { id: 'lotsendienst', label: 'Lotsendienst' },
+    { id: 'begruessung', label: 'Begrüßung & Kennenlernen' },
     { id: 'planung', label: 'Studiumsplanung' },
     { id: 'rallye', label: 'Rallyes' },
     { id: 'party', label: 'Abendveranstaltung' },
-    { id: 'orga', label: 'Orga & Logistik' }
+    { id: 'orga', label: 'Orga & Messe' }
   ];
 
   // Filtering logic

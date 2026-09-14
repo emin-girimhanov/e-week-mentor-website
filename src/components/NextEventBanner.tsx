@@ -19,9 +19,9 @@ export const NextEventBanner: FC<NextEventBannerProps> = ({
   const [downloaded, setDownloaded] = useState(false);
 
   // Find next event matching selected audience & language
-  let nextEvent = DAYS_SCHEDULE[0]?.items[0];
-  let nextDate = DAYS_SCHEDULE[0]?.date;
-  let nextDayName = DAYS_SCHEDULE[0]?.dayName;
+  let nextEvent: (typeof DAYS_SCHEDULE[0]['items'][0]) | undefined = undefined;
+  let nextDate = '';
+  let nextDayName = '';
 
   for (const day of DAYS_SCHEDULE) {
     const match = day.items.find(it => {
@@ -67,11 +67,21 @@ export const NextEventBanner: FC<NextEventBannerProps> = ({
       {nextEvent && (
         <div className="bg-zinc-900 border border-zinc-700/80 rounded-xl p-4 shadow-md">
           <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 flex-wrap">
               <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
               <span className="text-[11px] uppercase font-mono tracking-wider text-red-400 font-bold">
                 Nächster Treffpunkt (10 Min eher!)
               </span>
+              {selectedAudience !== 'all' && (
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded border bg-zinc-800 text-zinc-300 border-zinc-700">
+                  {selectedAudience === 'international' ? 'International' : selectedAudience.toUpperCase()}
+                </span>
+              )}
+              {selectedLanguage !== 'all' && (
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded border bg-zinc-800 text-zinc-300 border-zinc-700">
+                  {selectedLanguage === 'en' ? '🇬🇧 Englisch' : selectedLanguage === 'bilingual' ? '🔀 Bilingual' : '🇩🇪 Deutsch'}
+                </span>
+              )}
             </div>
 
             <span className="text-xs text-zinc-400 font-medium">

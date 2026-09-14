@@ -10,7 +10,7 @@ export interface ScheduleItem {
   title: string;
   location: string;
   roomBadge: string;
-  category: 'orga' | 'lotsendienst' | 'begruessung' | 'mensa' | 'rallye' | 'planung' | 'party' | 'kultur';
+  category: 'begruessung' | 'planung' | 'rallye' | 'party' | 'orga';
   audiences: TargetAudience[];
   language: EventLanguage;
   responsible: string[];
@@ -86,28 +86,6 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
     focus: 'Begrüßung, Ersti-Beutel & Campusrallye',
     items: [
       {
-        id: 'mo-1',
-        time: '11:20 bis 12:00 Uhr',
-        meetingTime: '11:10 Uhr',
-        googleMapsUrl: 'https://maps.google.com/?q=52.13812,11.64251',
-        appleMapsUrl: 'https://maps.apple.com/?q=Campus+Welcome+Center+Magdeburg&ll=52.13812,11.64251',
-        title: 'Campus-Lotsendienst',
-        location: 'Magistrale, Campus Welcome Center bis FIN (G29)',
-        roomBadge: 'Campus / Magistrale',
-        category: 'lotsendienst',
-        audiences: ['bachelor', 'master', 'international'],
-        language: 'bilingual',
-        responsible: ['Orga-Team', 'Helfer-Team', 'Alle Mentoren'],
-        description: 'Erstsemester vom Campus Welcome Center und von der Immatrikulationsfeier zur FIN lotsen.',
-        checklist: [
-          'Kreidespray-Markierungen auf den Hauptwegen aufbringen',
-          'Wegweiser-Aufsteller entlang der Magistrale platzieren',
-          'Erstis aktiv ansprechen und nach G29 begleiten',
-          'Social-Media-Storys und Wegbeschreibungen live unterstützen'
-        ],
-        importantNote: 'Auf- und Abbau zentraler Infozelte erfolgt durch die OVGU.'
-      },
-      {
         id: 'mo-2',
         time: '12:00 bis 13:30 Uhr',
         meetingTime: '11:50 Uhr',
@@ -158,7 +136,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         title: 'Bits & Bites: Gemeinsamer Mensagang',
         location: 'Mensa UniCampus',
         roomBadge: 'Mensa',
-        category: 'mensa',
+        category: 'begruessung',
         audiences: ['bachelor'],
         language: 'de',
         responsible: ['Mentoren-Tandems'],
@@ -435,7 +413,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         title: 'Markt der Möglichkeiten der OVGU',
         location: 'Gebäude 22, Innenhof & Foyer',
         roomBadge: 'G22 Innenhof',
-        category: 'kultur',
+        category: 'orga',
         audiences: ['bachelor', 'master', 'international'],
         language: 'bilingual',
         responsible: ['FaRaFIN Stand-Team', 'OVGU Zentral'],
@@ -481,7 +459,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         title: 'Master-Brunch',
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
-        category: 'kultur',
+        category: 'begruessung',
         audiences: ['master', 'international'],
         language: 'en',
         responsible: ['Simin', 'Helfer-Team'],
