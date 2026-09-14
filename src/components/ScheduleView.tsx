@@ -177,8 +177,12 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, checkedItems, onToggleCheck
       {/* Top Header Row */}
       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
         <div className="flex items-center gap-2">
-          <span className="flex items-center gap-1.5 text-xs font-mono font-medium text-zinc-200 bg-zinc-800/90 px-2 py-0.5 rounded border border-zinc-700/60">
-            <Clock className="w-3 h-3 text-zinc-400" />
+          {/* Red Meeting Time (10 min earlier) */}
+          <span className="text-xs font-mono font-bold text-red-400 bg-red-950/60 border border-red-800/60 px-2 py-0.5 rounded">
+            Treffen: {item.meetingTime}
+          </span>
+          <span className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded border border-zinc-700/60">
+            <Clock className="w-3 h-3 text-zinc-500" />
             {item.time}
           </span>
         </div>
@@ -194,10 +198,28 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, checkedItems, onToggleCheck
         {item.title}
       </h3>
 
-      {/* Location */}
-      <p className="text-xs text-zinc-400 mb-2">
-        Ort: {item.location}
-      </p>
+      {/* Location with Direct Map Links */}
+      <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-400 mb-2">
+        <span>Ort: {item.location}</span>
+        <div className="inline-flex items-center gap-1.5 ml-auto">
+          <a
+            href={item.googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] text-zinc-300 hover:text-white bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/80"
+          >
+            Google Maps
+          </a>
+          <a
+            href={item.appleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] text-zinc-300 hover:text-white bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/80"
+          >
+            Apple Karten
+          </a>
+        </div>
+      </div>
 
       {/* Responsible People */}
       <div className="flex items-center gap-1.5 text-xs text-zinc-300 mb-2.5">

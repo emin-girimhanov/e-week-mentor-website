@@ -1,6 +1,9 @@
 export interface ScheduleItem {
   id: string;
   time: string;
+  meetingTime: string;
+  googleMapsUrl: string;
+  appleMapsUrl: string;
   title: string;
   location: string;
   roomBadge: string;
@@ -80,6 +83,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mo-1',
         time: '11:20 bis 12:00 Uhr',
+        meetingTime: '11:10 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13812,11.64251',
+        appleMapsUrl: 'https://maps.apple.com/?q=Campus+Welcome+Center+Magdeburg&ll=52.13812,11.64251',
         title: 'Campus-Lotsendienst',
         location: 'Magistrale, Campus Welcome Center bis FIN (G29)',
         roomBadge: 'Campus / Magistrale',
@@ -97,6 +103,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mo-2',
         time: '12:00 bis 13:30 Uhr',
+        meetingTime: '11:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Hello, Students! Begrüßung & Gruppeneinteilung',
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
@@ -114,6 +123,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mo-3',
         time: '13:00 bis 13:30 Uhr',
+        meetingTime: '12:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'E-Beutel Ausgabe & Logistik',
         location: 'Gebäude 29, Foyer & Besprechungsraum',
         roomBadge: 'G29-412 / Foyer',
@@ -129,6 +141,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mo-4',
         time: '13:30 bis 15:00 Uhr',
+        meetingTime: '13:20 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13812,11.64251',
+        appleMapsUrl: 'https://maps.apple.com/?q=Mensa+UniCampus+Magdeburg&ll=52.13812,11.64251',
         title: 'Bits & Bites: Gemeinsamer Mensagang',
         location: 'Mensa UniCampus',
         roomBadge: 'Mensa',
@@ -145,6 +160,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mo-5',
         time: '15:00 bis 18:00 Uhr',
+        meetingTime: '14:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Campusrallye (5 Routen)',
         location: 'Start: Vorplatz Gebäude 29 (FIN)',
         roomBadge: 'Vorplatz G29',
@@ -162,6 +180,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mo-6',
         time: '17:00 bis 23:00 Uhr',
+        meetingTime: '16:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Informatik-Spieleabend',
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
@@ -185,6 +206,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'di-1',
         time: '13:00 bis 13:45 Uhr',
+        meetingTime: '12:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Kurzpräsentationen Teil I',
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
@@ -201,6 +225,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'di-2',
         time: '13:45 bis 19:00 Uhr',
+        meetingTime: '13:35 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Bachelor Studiumsplanung.exe (Fachräume)',
         location: 'Gebäude 29 & Gebäude 20 (Fachseminarräume)',
         roomBadge: 'Fachräume FIN',
@@ -220,6 +247,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'di-3',
         time: '19:00 Uhr bis Open End',
+        meetingTime: '18:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.12282,11.62775',
+        appleMapsUrl: 'https://maps.apple.com/?q=Hasselbachplatz+Magdeburg&ll=52.12282,11.62775',
         title: 'Kneipentour & Barabend',
         location: 'Treffpunkt Vorplatz G29, Richtung Hasselbachplatz',
         roomBadge: 'Hasselbachplatz',
@@ -245,6 +275,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mi-1',
         time: '09:00 bis 09:30 Uhr',
+        meetingTime: '08:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'International Welcome & Orientation',
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
@@ -260,6 +293,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mi-2',
         time: '09:30 bis 12:00 Uhr',
+        meetingTime: '09:20 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Master Studiumsplanung.exe',
         location: 'Gebäude 29, Großer Hörsaal & Seminarräume',
         roomBadge: 'G29-307 / Seminarräume',
@@ -275,6 +311,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mi-3',
         time: '13:00 bis 13:45 Uhr',
+        meetingTime: '12:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Kurzpräsentationen Teil II',
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
@@ -289,6 +328,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mi-4',
         time: '13:45 bis 18:30 Uhr',
+        meetingTime: '13:35 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.12750,11.63500',
+        appleMapsUrl: 'https://maps.apple.com/?q=Domplatz+Magdeburg&ll=52.12750,11.63500',
         title: 'Stadtrallye (Bilingual DE/EN)',
         location: 'Magdeburg Innenstadt, Domplatz & Elbufer',
         roomBadge: 'Magdeburg City',
@@ -305,6 +347,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'mi-5',
         time: '19:00 Uhr bis Open End',
+        meetingTime: '18:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Legendäre Instaparty',
         location: 'Gebäude 29, Innenhof & Foyer',
         roomBadge: 'G29 Innenhof',
@@ -331,6 +376,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'do-1',
         time: '10:00 bis 11:00 Uhr',
+        meetingTime: '09:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Kater-Frühstück für Mentoren & Helfer',
         location: 'Gebäude 29, FaRaFIN-Büro',
         roomBadge: 'G29-103',
@@ -346,6 +394,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'do-2',
         time: '11:00 bis 15:00 Uhr',
+        meetingTime: '10:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13812,11.64251',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+22+OVGU&ll=52.13812,11.64251',
         title: 'Markt der Möglichkeiten der OVGU',
         location: 'Gebäude 22, Innenhof & Foyer',
         roomBadge: 'G22 Innenhof',
@@ -360,6 +411,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'do-3',
         time: '18:00 Uhr bis Open End',
+        meetingTime: '17:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13670,11.64680',
+        appleMapsUrl: 'https://maps.apple.com/?q=Festung+Mark+Magdeburg&ll=52.13670,11.64680',
         title: 'Abendprogramm: Festung Mark oder Mini-Spieleabend',
         location: 'Festung Mark bzw. Gebäude 29',
         roomBadge: 'Festung Mark / G29',
@@ -382,6 +436,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'fr-1',
         time: '10:00 bis 14:00 Uhr',
+        meetingTime: '09:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Master-Brunch',
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
@@ -397,6 +454,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'fr-2',
         time: '15:00 Uhr bis Open End',
+        meetingTime: '14:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.14410,11.64350',
+        appleMapsUrl: 'https://maps.apple.com/?q=Nordpark+Magdeburg&ll=52.14410,11.64350',
         title: 'Abschlussgrillen im Nordpark',
         location: 'Nordpark Magdeburg (Grillwiese)',
         roomBadge: 'Nordpark',
@@ -422,6 +482,9 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       {
         id: 'we-1',
         time: 'Flexibel nach Absprache',
+        meetingTime: '10 Min vor Beginn',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
         title: 'Mentoring-Dinner & Lessons Learned',
         location: 'G29-307 oder Restaurant in Magdeburg',
         roomBadge: 'G29 / Extern',
