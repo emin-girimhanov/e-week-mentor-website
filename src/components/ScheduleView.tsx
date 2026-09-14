@@ -74,7 +74,7 @@ export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery }) => {
           onClick={() => setSelectedDayId('all')}
           className={`px-3 py-1.5 rounded-md text-xs cursor-pointer shrink-0 transition-colors ${
             selectedDayId === 'all'
-              ? 'bg-zinc-100 text-zinc-950 font-semibold'
+              ? 'bg-farafin text-white font-semibold shadow-sm'
               : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
           }`}
         >
@@ -86,12 +86,12 @@ export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery }) => {
             onClick={() => setSelectedDayId(day.id)}
             className={`px-3 py-1.5 rounded-md text-xs cursor-pointer shrink-0 transition-colors ${
               selectedDayId === day.id
-                ? 'bg-zinc-100 text-zinc-950 font-semibold'
+                ? 'bg-farafin text-white font-semibold shadow-sm'
                 : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
             }`}
           >
             <span>{day.dayName}</span>
-            <span className="opacity-60 ml-1 text-[11px]">({day.date.split('.')[0]}.{day.date.split('.')[1]}.)</span>
+            <span className="opacity-75 ml-1 text-[11px]">({day.date.split('.')[0]}.{day.date.split('.')[1]}.)</span>
           </button>
         ))}
       </div>
@@ -104,7 +104,7 @@ export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery }) => {
             onClick={() => setSelectedCategory(cat.id)}
             className={`px-2.5 py-1 rounded text-xs cursor-pointer shrink-0 transition-colors ${
               selectedCategory === cat.id
-                ? 'bg-zinc-800 text-zinc-200 font-medium border border-zinc-700'
+                ? 'bg-farafin/25 text-blue-200 font-medium border border-farafin/40'
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >

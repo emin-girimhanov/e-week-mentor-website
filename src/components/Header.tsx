@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { Calendar, BookOpen, MapPin, Lock, Search } from 'lucide-react';
+import { Calendar, BookOpen, MapPin, Search } from 'lucide-react';
 
 export type ActiveTab = 'schedule' | 'handbook' | 'map';
 
@@ -8,15 +8,13 @@ interface HeaderProps {
   setActiveTab: (tab: ActiveTab) => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
-  onLock: () => void;
 }
 
 export const Header: FC<HeaderProps> = ({
   activeTab,
   setActiveTab,
   searchQuery,
-  setSearchQuery,
-  onLock
+  setSearchQuery
 }) => {
   const tabs = [
     { id: 'schedule' as ActiveTab, label: 'Dienstplan', icon: Calendar },
@@ -43,7 +41,7 @@ export const Header: FC<HeaderProps> = ({
                 <span className="text-base font-semibold text-zinc-100 tracking-tight">
                   FaRaFIN E-Woche
                 </span>
-                <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-medium bg-zinc-800 text-zinc-300 rounded border border-zinc-700/60">
+                <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-medium bg-farafin/20 text-blue-200 rounded border border-farafin/40">
                   Mentoren-Portal
                 </span>
               </div>
@@ -52,14 +50,14 @@ export const Header: FC<HeaderProps> = ({
 
           <div className="flex items-center gap-2">
             {/* Desktop Search Input */}
-            <div className="relative hidden sm:block w-48 md:w-60">
+            <div className="relative hidden sm:block w-52 md:w-64">
               <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Suchen..."
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors"
+                placeholder="Suchen nach Raum, Schicht, Name..."
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-farafin focus:ring-1 focus:ring-farafin transition-colors"
               />
               {searchQuery && (
                 <button
@@ -70,16 +68,6 @@ export const Header: FC<HeaderProps> = ({
                 </button>
               )}
             </div>
-
-            {/* Lock Button */}
-            <button
-              onClick={onLock}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 text-zinc-400 hover:text-zinc-200 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-md text-xs font-medium transition-colors cursor-pointer"
-              title="Portal sperren"
-            >
-              <Lock className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">Sperren</span>
-            </button>
           </div>
         </div>
 
@@ -91,7 +79,7 @@ export const Header: FC<HeaderProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Suchen nach Raum, Schicht oder Name..."
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors"
+            className="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-farafin focus:ring-1 focus:ring-farafin transition-colors"
           />
           {searchQuery && (
             <button
@@ -114,11 +102,11 @@ export const Header: FC<HeaderProps> = ({
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center justify-center gap-2 flex-1 sm:flex-initial px-4 py-2 rounded-md text-xs font-medium transition-colors cursor-pointer ${
                   isActive
-                    ? 'bg-zinc-100 text-zinc-950 font-semibold'
+                    ? 'bg-farafin text-white font-semibold shadow-sm'
                     : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 border border-transparent'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-zinc-950' : 'text-zinc-400'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-zinc-400'}`} />
                 <span>{tab.label}</span>
               </button>
             );

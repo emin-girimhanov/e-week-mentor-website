@@ -20,8 +20,8 @@ export const InstallModal: FC<InstallModalProps> = ({ isOpen, onClose }) => {
         </button>
 
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-200">
-            <Smartphone className="w-5 h-5" />
+          <div className="w-10 h-10 rounded-lg bg-farafin/20 border border-farafin/40 flex items-center justify-center text-blue-200">
+            <Smartphone className="w-5 h-5 text-farafin-light" />
           </div>
           <div>
             <h3 className="text-base font-semibold text-zinc-100">
@@ -59,7 +59,7 @@ export const InstallModal: FC<InstallModalProps> = ({ isOpen, onClose }) => {
 
         <button
           onClick={onClose}
-          className="w-full py-2.5 bg-zinc-100 hover:bg-white text-zinc-950 font-semibold rounded-md text-xs cursor-pointer transition-colors flex items-center justify-center gap-1.5"
+          className="w-full py-2.5 bg-farafin hover:bg-farafin-hover text-white font-semibold rounded-md text-xs cursor-pointer transition-colors flex items-center justify-center gap-1.5 shadow-sm"
         >
           <Check className="w-4 h-4" />
           <span>Verstanden, schließen</span>

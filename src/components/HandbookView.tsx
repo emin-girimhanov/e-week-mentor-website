@@ -39,7 +39,7 @@ export const HandbookView: FC<HandbookViewProps> = ({ searchQuery }) => {
           onClick={() => setActiveSection('faq')}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs cursor-pointer transition-colors shrink-0 ${
             activeSection === 'faq'
-              ? 'bg-zinc-100 text-zinc-950 font-semibold'
+              ? 'bg-farafin text-white font-semibold shadow-sm'
               : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
           }`}
         >
@@ -51,7 +51,7 @@ export const HandbookView: FC<HandbookViewProps> = ({ searchQuery }) => {
           onClick={() => setActiveSection('emergency')}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs cursor-pointer transition-colors shrink-0 ${
             activeSection === 'emergency'
-              ? 'bg-zinc-100 text-zinc-950 font-semibold'
+              ? 'bg-farafin text-white font-semibold shadow-sm'
               : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
           }`}
         >
@@ -63,7 +63,7 @@ export const HandbookView: FC<HandbookViewProps> = ({ searchQuery }) => {
           onClick={() => setActiveSection('rallye')}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs cursor-pointer transition-colors shrink-0 ${
             activeSection === 'rallye'
-              ? 'bg-zinc-100 text-zinc-950 font-semibold'
+              ? 'bg-farafin text-white font-semibold shadow-sm'
               : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
           }`}
         >
@@ -75,7 +75,7 @@ export const HandbookView: FC<HandbookViewProps> = ({ searchQuery }) => {
           onClick={() => setActiveSection('links')}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs cursor-pointer transition-colors shrink-0 ${
             activeSection === 'links'
-              ? 'bg-zinc-100 text-zinc-950 font-semibold'
+              ? 'bg-farafin text-white font-semibold shadow-sm'
               : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
           }`}
         >

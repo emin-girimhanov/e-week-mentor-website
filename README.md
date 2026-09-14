@@ -65,10 +65,10 @@ vercel
 
 ---
 
-## 🔒 Standard-Zugangsdaten
+## 🎨 Farbdesign & Branding
 
-* **Passwort / PIN:** `farafin2026` (alternativ: `mentor2026` oder `farafin`)
-* Das Passwort kann in [src/components/LockScreen.tsx](file:///C:/Users/eming/Nextcloud/Wissensdatenbank/2-Areas/Vereine/FaRaFIN/E-Woche/mentoren-portal/src/components/LockScreen.tsx) angepasst werden.
+* **FaRaFIN Blau:** `#3567b0` als primäre Akzentfarbe für Navigation, Pins und Buttons
+* **Direkter Zugriff:** Kein Passwort erforderlich, sofortiger Einstieg für alle Helfenden
 
 ---
 

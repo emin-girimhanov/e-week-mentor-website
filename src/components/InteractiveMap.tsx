@@ -194,25 +194,25 @@ export const InteractiveMap: FC = () => {
       }
     });
 
-    // Custom dark marker icon
+    // Custom FaRaFIN blue marker icon (red when active)
     const createCustomIcon = (isSelected: boolean) => L.divIcon({
       className: 'custom-map-pin',
       html: `<div style="
-        background: ${isSelected ? '#ef4444' : '#18181b'};
+        background: ${isSelected ? '#ef4444' : '#3567b0'};
         color: #ffffff;
-        border: 2px solid ${isSelected ? '#ffffff' : '#71717a'};
+        border: 2px solid #ffffff;
         border-radius: 50%;
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 11px;
+        font-size: 13px;
         font-weight: bold;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.6);
       ">📍</div>`,
-      iconSize: [28, 28],
-      iconAnchor: [14, 14]
+      iconSize: [30, 30],
+      iconAnchor: [15, 15]
     });
 
     // Add markers
@@ -253,7 +253,7 @@ export const InteractiveMap: FC = () => {
             }}
             className={`px-3 py-1.5 rounded-md text-xs cursor-pointer transition-colors ${
               mapScope === 'campus'
-                ? 'bg-zinc-100 text-zinc-950 font-semibold'
+                ? 'bg-farafin text-white font-semibold shadow-sm'
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
@@ -266,7 +266,7 @@ export const InteractiveMap: FC = () => {
             }}
             className={`px-3 py-1.5 rounded-md text-xs cursor-pointer transition-colors ${
               mapScope === 'stadt'
-                ? 'bg-zinc-100 text-zinc-950 font-semibold'
+                ? 'bg-farafin text-white font-semibold shadow-sm'
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >

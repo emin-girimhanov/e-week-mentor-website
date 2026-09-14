@@ -91,27 +91,27 @@ export const NextEventBanner: FC<NextEventBannerProps> = ({ onOpenInstallModal }
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
         <button
           onClick={handleDownloadFullCalendar}
-          className="flex items-center justify-center gap-2 py-2.5 px-4 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 rounded-lg text-xs font-semibold border border-zinc-700/80 cursor-pointer transition-colors shadow-sm"
+          className="flex items-center justify-center gap-2 py-2.5 px-4 bg-farafin hover:bg-farafin-hover text-white rounded-lg text-xs font-semibold border border-farafin-light/40 cursor-pointer transition-colors shadow-sm"
         >
           {downloaded ? (
             <>
-              <Check className="w-4 h-4 text-emerald-400" />
-              <span className="text-emerald-300">Kalenderdatei (.ics) heruntergeladen!</span>
+              <Check className="w-4 h-4 text-emerald-300" />
+              <span className="text-emerald-200">Kalenderdatei (.ics) heruntergeladen!</span>
             </>
           ) : (
             <>
-              <Calendar className="w-4 h-4 text-zinc-400" />
+              <Calendar className="w-4 h-4 text-blue-100" />
               <span>In Kalender eintragen (.ics / 10-Min-Alarm)</span>
-              <Download className="w-3.5 h-3.5 text-zinc-500 ml-0.5" />
+              <Download className="w-3.5 h-3.5 text-blue-200 ml-0.5" />
             </>
           )}
         </button>
 
         <button
           onClick={onOpenInstallModal}
-          className="flex items-center justify-center gap-2 py-2.5 px-4 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 rounded-lg text-xs font-semibold border border-zinc-700/80 cursor-pointer transition-colors shadow-sm"
+          className="flex items-center justify-center gap-2 py-2.5 px-4 bg-zinc-900/90 hover:bg-farafin/15 text-zinc-200 hover:text-white rounded-lg text-xs font-semibold border border-farafin/30 cursor-pointer transition-colors shadow-sm"
         >
-          <Smartphone className="w-4 h-4 text-zinc-400" />
+          <Smartphone className="w-4 h-4 text-farafin-light" />
           <span>Als App auf Smartphone installieren</span>
         </button>
       </div>

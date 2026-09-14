@@ -41,7 +41,7 @@ export const MapView: FC<MapViewProps> = ({ searchQuery }) => {
           onClick={() => setActiveSubTab('table')}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs cursor-pointer transition-colors shrink-0 ${
             activeSubTab === 'table'
-              ? 'bg-zinc-100 text-zinc-950 font-semibold'
+              ? 'bg-farafin text-white font-semibold shadow-sm'
               : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
           }`}
         >
@@ -53,7 +53,7 @@ export const MapView: FC<MapViewProps> = ({ searchQuery }) => {
           onClick={() => setActiveSubTab('interactive')}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs cursor-pointer transition-colors shrink-0 ${
             activeSubTab === 'interactive'
-              ? 'bg-zinc-100 text-zinc-950 font-semibold'
+              ? 'bg-farafin text-white font-semibold shadow-sm'
               : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
           }`}
         >
@@ -65,7 +65,7 @@ export const MapView: FC<MapViewProps> = ({ searchQuery }) => {
           onClick={() => setActiveSubTab('rooms')}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs cursor-pointer transition-colors shrink-0 ${
             activeSubTab === 'rooms'
-              ? 'bg-zinc-100 text-zinc-950 font-semibold'
+              ? 'bg-farafin text-white font-semibold shadow-sm'
               : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
           }`}
         >
@@ -79,7 +79,7 @@ export const MapView: FC<MapViewProps> = ({ searchQuery }) => {
         <div className="space-y-5">
           {/* Info Banner */}
           <div className="bg-zinc-900/70 border border-zinc-800 rounded-lg p-3.5 text-xs text-zinc-300 leading-relaxed flex items-start gap-2.5">
-            <Info className="w-4 h-4 text-zinc-400 shrink-0 mt-0.5" />
+            <Info className="w-4 h-4 text-farafin-light shrink-0 mt-0.5" />
             <div>
               <span className="font-semibold text-zinc-100 block mb-0.5">
                 Idiotensicherer Einsatzplan: Pünktlichkeit & Treffzeiten
@@ -96,7 +96,7 @@ export const MapView: FC<MapViewProps> = ({ searchQuery }) => {
               onClick={() => setSelectedDayId('all')}
               className={`px-3 py-1.5 rounded-md text-xs cursor-pointer shrink-0 transition-colors ${
                 selectedDayId === 'all'
-                  ? 'bg-zinc-100 text-zinc-950 font-semibold'
+                  ? 'bg-farafin text-white font-semibold shadow-sm'
                   : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
               }`}
             >
@@ -108,12 +108,12 @@ export const MapView: FC<MapViewProps> = ({ searchQuery }) => {
                 onClick={() => setSelectedDayId(day.id)}
                 className={`px-3 py-1.5 rounded-md text-xs cursor-pointer shrink-0 transition-colors ${
                   selectedDayId === day.id
-                    ? 'bg-zinc-100 text-zinc-950 font-semibold'
+                    ? 'bg-farafin text-white font-semibold shadow-sm'
                     : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
                 }`}
               >
                 <span>{day.dayName}</span>
-                <span className="opacity-60 ml-1 text-[11px]">({day.date.split('.')[0]}.{day.date.split('.')[1]}.)</span>
+                <span className="opacity-75 ml-1 text-[11px]">({day.date.split('.')[0]}.{day.date.split('.')[1]}.)</span>
               </button>
             ))}
           </div>
