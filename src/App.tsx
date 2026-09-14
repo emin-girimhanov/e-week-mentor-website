@@ -3,12 +3,9 @@ import { LockScreen } from './components/LockScreen';
 import { Header } from './components/Header';
 import type { ActiveTab } from './components/Header';
 import { ScheduleView } from './components/ScheduleView';
-import { RoomsView } from './components/RoomsView';
-import { EmergencyView } from './components/EmergencyView';
-import { FAQView } from './components/FAQView';
-import { RallyeView } from './components/RallyeView';
-import { LinksView } from './components/LinksView';
-import { Calendar, DoorOpen, PhoneCall, HelpCircle, MapPin, ExternalLink, Wifi } from 'lucide-react';
+import { HandbookView } from './components/HandbookView';
+import { MapView } from './components/MapView';
+import { Calendar, BookOpen, MapPin, Wifi } from 'lucide-react';
 
 export function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
@@ -36,7 +33,7 @@ export function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-cyan-500 selection:text-slate-950 pb-20 sm:pb-8">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col pb-20 sm:pb-8 selection:bg-zinc-800 selection:text-zinc-100">
       {/* Top Header */}
       <Header
         activeTab={activeTab}
@@ -47,94 +44,61 @@ export function App() {
       />
 
       {/* Main Content Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6">
         {activeTab === 'schedule' && <ScheduleView searchQuery={searchQuery} />}
-        {activeTab === 'rooms' && <RoomsView searchQuery={searchQuery} />}
-        {activeTab === 'emergency' && <EmergencyView />}
-        {activeTab === 'faq' && <FAQView searchQuery={searchQuery} />}
-        {activeTab === 'rallye' && <RallyeView />}
-        {activeTab === 'links' && <LinksView />}
+        {activeTab === 'handbook' && <HandbookView searchQuery={searchQuery} />}
+        {activeTab === 'map' && <MapView searchQuery={searchQuery} />}
       </main>
 
       {/* Desktop & Tablet Footer */}
-      <footer className="mt-auto border-t border-slate-900 bg-slate-950/60 py-6 text-center text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <footer className="mt-auto border-t border-zinc-900 bg-zinc-950/80 py-5 text-center text-xs text-zinc-500">
+        <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-slate-400 font-medium">FaRaFIN Mentoren-Portal • WiSe 2026/2027</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
+            <span className="text-zinc-400 font-medium">FaRaFIN Mentoren-Portal • WiSe 2026/2027</span>
           </div>
 
-          <div className="flex items-center gap-4 text-[11px] text-slate-500">
+          <div className="flex items-center gap-4 text-[11px] text-zinc-500">
             <span>Gebäude 29 (FIN) • Universitätsplatz 2</span>
             <span>Notfall-Desk: G29-103</span>
-            <span className="flex items-center gap-1 text-cyan-400">
+            <span className="flex items-center gap-1 text-zinc-400">
               <Wifi className="w-3 h-3" />
-              <span>Offline-optimiert</span>
+              <span>Offline-bereit</span>
             </span>
           </div>
         </div>
       </footer>
 
-      {/* Mobile Fixed Bottom Navigation Bar */}
-      <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-lg border-t border-slate-800 px-2 py-1.5 flex items-center justify-around">
+      {/* Mobile Fixed Bottom Navigation Bar (3 Clean Tabs) */}
+      <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-zinc-950/95 backdrop-blur-md border-t border-zinc-800 px-3 py-2 flex items-center justify-around">
         <button
           onClick={() => setActiveTab('schedule')}
-          className={`flex flex-col items-center gap-0.5 p-1 text-[10px] cursor-pointer transition-colors ${
-            activeTab === 'schedule' ? 'text-cyan-400 font-bold' : 'text-slate-400 hover:text-slate-200'
+          className={`flex flex-col items-center gap-1 p-1 text-[11px] cursor-pointer transition-colors ${
+            activeTab === 'schedule' ? 'text-zinc-100 font-semibold' : 'text-zinc-500 hover:text-zinc-300'
           }`}
         >
           <Calendar className="w-4 h-4" />
-          <span>Plan</span>
+          <span>Dienstplan</span>
         </button>
 
         <button
-          onClick={() => setActiveTab('rooms')}
-          className={`flex flex-col items-center gap-0.5 p-1 text-[10px] cursor-pointer transition-colors ${
-            activeTab === 'rooms' ? 'text-cyan-400 font-bold' : 'text-slate-400 hover:text-slate-200'
+          onClick={() => setActiveTab('handbook')}
+          className={`flex flex-col items-center gap-1 p-1 text-[11px] cursor-pointer transition-colors ${
+            activeTab === 'handbook' ? 'text-zinc-100 font-semibold' : 'text-zinc-500 hover:text-zinc-300'
           }`}
         >
-          <DoorOpen className="w-4 h-4" />
-          <span>Räume</span>
+          <BookOpen className="w-4 h-4" />
+          <span>Handbuch & FAQ</span>
         </button>
 
         <button
-          onClick={() => setActiveTab('emergency')}
-          className={`flex flex-col items-center gap-0.5 p-1 text-[10px] cursor-pointer transition-colors ${
-            activeTab === 'emergency' ? 'text-rose-400 font-bold' : 'text-rose-300 hover:text-rose-200'
-          }`}
-        >
-          <PhoneCall className="w-4 h-4" />
-          <span>Notfall</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('faq')}
-          className={`flex flex-col items-center gap-0.5 p-1 text-[10px] cursor-pointer transition-colors ${
-            activeTab === 'faq' ? 'text-cyan-400 font-bold' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <HelpCircle className="w-4 h-4" />
-          <span>FAQ</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('rallye')}
-          className={`flex flex-col items-center gap-0.5 p-1 text-[10px] cursor-pointer transition-colors ${
-            activeTab === 'rallye' ? 'text-cyan-400 font-bold' : 'text-slate-400 hover:text-slate-200'
+          onClick={() => setActiveTab('map')}
+          className={`flex flex-col items-center gap-1 p-1 text-[11px] cursor-pointer transition-colors ${
+            activeTab === 'map' ? 'text-zinc-100 font-semibold' : 'text-zinc-500 hover:text-zinc-300'
           }`}
         >
           <MapPin className="w-4 h-4" />
-          <span>Rallye</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('links')}
-          className={`flex flex-col items-center gap-0.5 p-1 text-[10px] cursor-pointer transition-colors ${
-            activeTab === 'links' ? 'text-cyan-400 font-bold' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <ExternalLink className="w-4 h-4" />
-          <span>Links</span>
+          <span>Lageplan & Räume</span>
         </button>
       </nav>
     </div>

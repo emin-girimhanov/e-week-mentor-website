@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { FC, FormEvent } from 'react';
-import { KeyRound, ShieldCheck, ArrowRight, AlertCircle } from 'lucide-react';
+import { Lock, ArrowRight, AlertCircle } from 'lucide-react';
 
 interface LockScreenProps {
   onUnlock: () => void;
@@ -13,7 +13,6 @@ export const LockScreen: FC<LockScreenProps> = ({ onUnlock }) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const cleanPass = password.trim().toLowerCase();
-    // Default Mentoren Passwords: 'farafin2026' or 'mentor2026'
     if (cleanPass === 'farafin2026' || cleanPass === 'mentor2026' || cleanPass === 'farafin') {
       localStorage.setItem('ewoche_mentor_auth', 'authenticated');
       onUnlock();
@@ -23,49 +22,43 @@ export const LockScreen: FC<LockScreenProps> = ({ onUnlock }) => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col justify-center items-center px-4 py-8 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="w-full max-w-md bg-slate-900/90 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative z-10">
+    <div className="min-h-screen bg-zinc-950 flex flex-col justify-center items-center px-4 py-8">
+      <div className="w-full max-w-sm bg-zinc-900 border border-zinc-800 rounded-xl p-6 sm:p-7 shadow-lg">
         <div className="flex flex-col items-center text-center mb-6">
-          <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-4 shadow-inner">
-            <KeyRound className="w-8 h-8" />
+          <div className="w-12 h-12 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-200 mb-3">
+            <Lock className="w-5 h-5" />
           </div>
-          <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-cyan-950/80 text-cyan-400 border border-cyan-800/50 rounded-full mb-2">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded border border-zinc-700 mb-2">
             Interner Bereich
           </span>
-          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            FaRaFIN E-Woche
+          <h1 className="text-xl font-bold text-zinc-100 tracking-tight">
+            FaRaFIN Mentoren-Portal
           </h1>
-          <p className="text-sm text-slate-400 mt-1">
-            Mentoren- & Helferportal WiSe 2026/2027
+          <p className="text-xs text-zinc-400 mt-1">
+            E-Woche WiSe 2026/2027
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="portal-password" className="block text-xs font-medium text-slate-300 mb-1.5">
+            <label htmlFor="portal-password" className="block text-xs font-medium text-zinc-300 mb-1.5">
               Team-Passwort oder PIN
             </label>
-            <div className="relative">
-              <input
-                id="portal-password"
-                type="password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  setError(false);
-                }}
-                placeholder="Passwort eingeben..."
-                autoFocus
-                className="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
-              />
-            </div>
+            <input
+              id="portal-password"
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError(false);
+              }}
+              placeholder="Passwort eingeben..."
+              autoFocus
+              className="w-full bg-zinc-950 border border-zinc-700 rounded-md px-3.5 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 transition-colors"
+            />
             {error && (
               <div className="flex items-center gap-1.5 text-xs text-rose-400 mt-2">
-                <AlertCircle className="w-4 h-4 shrink-0" />
+                <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                 <span>Ungültiges Passwort. Bitte erneut versuchen.</span>
               </div>
             )}
@@ -73,23 +66,20 @@ export const LockScreen: FC<LockScreenProps> = ({ onUnlock }) => {
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-cyan-900/30 active:scale-[0.99] transition-all cursor-pointer"
+            className="w-full bg-zinc-100 hover:bg-white text-zinc-950 font-semibold py-2.5 px-4 rounded-md flex items-center justify-center gap-2 text-xs transition-colors cursor-pointer"
           >
             <span>Dienstplan öffnen</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </form>
 
-        <div className="mt-6 pt-5 border-t border-slate-800/80 flex items-start gap-2.5 text-xs text-slate-400">
-          <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-          <p>
-            Passwortschutz für interne Schichtpläne, Notfallkontakte und Raumbuchungen. Das Standard-Passwort lautet <code className="bg-slate-800 px-1.5 py-0.5 rounded text-cyan-300 font-mono">farafin2026</code>.
-          </p>
+        <div className="mt-5 pt-4 border-t border-zinc-800 text-[11px] text-zinc-400 text-center">
+          Standard-Passwort: <code className="bg-zinc-800 px-1 py-0.5 rounded text-zinc-300 font-mono">farafin2026</code>
         </div>
       </div>
 
-      <div className="text-center mt-6 text-xs text-slate-500">
-        Fachschaftsrat der Fakultät für Informatik (FaRaFIN) • OVGU Magdeburg
+      <div className="text-center mt-5 text-[11px] text-zinc-500">
+        Fachschaftsrat der Fakultät für Informatik • OVGU Magdeburg
       </div>
     </div>
   );

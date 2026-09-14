@@ -1,7 +1,7 @@
 import type { FC } from 'react';
-import { Calendar, DoorOpen, PhoneCall, HelpCircle, MapPin, ExternalLink, Lock, Search } from 'lucide-react';
+import { Calendar, BookOpen, MapPin, Lock, Search } from 'lucide-react';
 
-export type ActiveTab = 'schedule' | 'rooms' | 'emergency' | 'faq' | 'rallye' | 'links';
+export type ActiveTab = 'schedule' | 'handbook' | 'map';
 
 interface HeaderProps {
   activeTab: ActiveTab;
@@ -20,107 +20,91 @@ export const Header: FC<HeaderProps> = ({
 }) => {
   const tabs = [
     { id: 'schedule' as ActiveTab, label: 'Dienstplan', icon: Calendar },
-    { id: 'rooms' as ActiveTab, label: 'Räume (G29)', icon: DoorOpen },
-    { id: 'emergency' as ActiveTab, label: 'Notfall & Leitfaden', icon: PhoneCall, badge: 'Wichtig' },
-    { id: 'faq' as ActiveTab, label: 'Westentaschen-FAQ', icon: HelpCircle },
-    { id: 'rallye' as ActiveTab, label: 'Rallye-Stationen', icon: MapPin },
-    { id: 'links' as ActiveTab, label: 'Ressourcen', icon: ExternalLink }
+    { id: 'handbook' as ActiveTab, label: 'Handbuch & FAQ', icon: BookOpen },
+    { id: 'map' as ActiveTab, label: 'Lageplan & Räume', icon: MapPin }
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+    <header className="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3">
         {/* Top bar */}
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <img
               src="/farafin_logo_blue.svg"
               alt="FaRaFIN Logo"
-              className="h-8 w-auto object-contain"
+              className="h-7 w-auto object-contain"
               onError={(e) => {
-                // Fallback to text icon if image fails
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-base sm:text-lg font-bold text-white tracking-tight">
+                <span className="text-base font-semibold text-zinc-100 tracking-tight">
                   FaRaFIN E-Woche
                 </span>
-                <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-cyan-950 text-cyan-400 border border-cyan-800/60 rounded">
-                  Mentoren-Hub 26/27
+                <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-medium bg-zinc-800 text-zinc-300 rounded border border-zinc-700/60">
+                  Mentoren-Portal
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 hidden xs:block">
-                Einsatzplanung, Räume und Notfallkette
-              </p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            {/* Search Input for Mobile/Desktop */}
-            <div className="relative hidden md:block w-48 lg:w-64">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            {/* Desktop Search Input */}
+            <div className="relative hidden sm:block w-48 md:w-60">
+              <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Suche (Raum, Name, Tag)..."
-                className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                placeholder="Suchen..."
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 hover:text-white"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-zinc-500 hover:text-zinc-300"
                 >
                   ✕
                 </button>
               )}
             </div>
 
-            {/* Quick Emergency Button */}
-            <button
-              onClick={() => setActiveTab('emergency')}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-rose-950/70 border border-rose-800/80 hover:bg-rose-900 text-rose-300 rounded-lg text-xs font-semibold transition-all cursor-pointer"
-              title="Notfallkontakte öffnen"
-            >
-              <PhoneCall className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Notfall-Hotline</span>
-            </button>
-
             {/* Lock Button */}
             <button
               onClick={onLock}
-              className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-lg transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 text-zinc-400 hover:text-zinc-200 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-md text-xs font-medium transition-colors cursor-pointer"
               title="Portal sperren"
             >
-              <Lock className="w-4 h-4" />
+              <Lock className="w-3.5 h-3.5" />
+              <span className="hidden md:inline">Sperren</span>
             </button>
           </div>
         </div>
 
-        {/* Search for Mobile */}
-        <div className="relative mt-2.5 md:hidden">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+        {/* Mobile Search Input */}
+        <div className="relative mt-2.5 sm:hidden">
+          <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Schnellsuche nach Raum, Schicht oder Name..."
-            className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+            placeholder="Suchen nach Raum, Schicht oder Name..."
+            className="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-zinc-500 hover:text-zinc-300"
             >
               ✕
             </button>
           )}
         </div>
 
-        {/* Tab Navigation (Horizontal Scrollable on Mobile) */}
-        <nav className="flex items-center gap-1.5 mt-3 overflow-x-auto no-scrollbar pb-1 pt-0.5">
+        {/* 3 Main Navigation Tabs */}
+        <nav className="flex items-center gap-2 mt-3 pt-1 border-t border-zinc-900 sm:border-t-0">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -128,19 +112,14 @@ export const Header: FC<HeaderProps> = ({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all cursor-pointer shrink-0 ${
+                className={`flex items-center justify-center gap-2 flex-1 sm:flex-initial px-4 py-2 rounded-md text-xs font-medium transition-colors cursor-pointer ${
                   isActive
-                    ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 border border-transparent'
+                    ? 'bg-zinc-100 text-zinc-950 font-semibold'
+                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 border border-transparent'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-cyan-400' : 'text-slate-400'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-zinc-950' : 'text-zinc-400'}`} />
                 <span>{tab.label}</span>
-                {tab.badge && (
-                  <span className="px-1.5 py-0.2 text-[9px] font-bold bg-rose-500/20 text-rose-300 rounded border border-rose-500/40">
-                    {tab.badge}
-                  </span>
-                )}
               </button>
             );
           })}

@@ -29,6 +29,20 @@ export interface RoomInfo {
   equipment: string;
   responsibleContact?: string;
   notes?: string;
+  googleMapsUrl?: string;
+  appleMapsUrl?: string;
+}
+
+export interface CampusLocation {
+  id: string;
+  name: string;
+  badge: string;
+  address: string;
+  description: string;
+  googleMapsUrl: string;
+  appleMapsUrl: string;
+  rooms?: string[];
+  keyEvents?: string[];
 }
 
 export interface EmergencyContact {
@@ -432,7 +446,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     purpose: 'Großer Hörsaal: Begrüßung, Kurzpräsentationen, Spieleabend, Master-Brunch, Bachelor Informatik Planung.',
     studyPrograms: ['Informatik (Bachelor)', 'Master-Studiengänge (MDKE, MDE, VC)'],
     equipment: 'Beamer, Mikrofone, Hörsaalbestuhlung, HDMI-Pult, Klimaanlage.',
-    notes: 'Ganztägig durchgehend gebucht. Zentrale Anlaufstelle bei Vollversammlungen.'
+    notes: 'Ganztägig durchgehend gebucht. Zentrale Anlaufstelle bei Vollversammlungen.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468'
   },
   {
     room: 'G29-103',
@@ -441,7 +457,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     purpose: 'FaRaFIN-Büro: Notfall-Schaltzentrale, tägliches Schichtleiter-Briefing (08:30 Uhr), Kater-Frühstück, Late-Arrival-Desk.',
     equipment: 'Kaffeemaschine, Notfall-Telefon, Verbandskasten, Rechner, Drucker, Schlüssel.',
     responsibleContact: 'Emin & Davide',
-    notes: 'Dauerhaft während der gesamten E-Woche mit Orga-Mitgliedern besetzt.'
+    notes: 'Dauerhaft während der gesamten E-Woche mit Orga-Mitgliedern besetzt.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468'
   },
   {
     room: 'G29-301',
@@ -449,7 +467,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     floor: '3. Obergeschoss',
     purpose: 'Seminarraum: Orga-Puffer, Vorbereitungsraum und Ruheraum für Mentoren.',
     equipment: 'Tische, Stühle, Whiteboard, Stromanschlüsse.',
-    notes: 'Rückzugsort für Mentoren zwischen den Schichten. Bitte leise und sauber halten.'
+    notes: 'Rückzugsort für Mentoren zwischen den Schichten. Bitte leise und sauber halten.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468'
   },
   {
     room: 'G29-412',
@@ -457,7 +477,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     floor: '4. Obergeschoss',
     purpose: 'Besprechungsraum: Fachschafts-Logistik, Materiallager, Sponsoren-Goodies, E-Beutel Nachschub.',
     equipment: 'Lagerregale, Packtische, Kartons, Rollwagen.',
-    notes: 'Zutritt nur für Mentoren und Helfer. Tür stets geschlossen halten.'
+    notes: 'Zutritt nur für Mentoren und Helfer. Tür stets geschlossen halten.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468'
   },
   {
     room: 'G29-336',
@@ -466,7 +488,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     purpose: 'Seminarraum: Bachelor Wirtschaftsinformatik Studiumsplanung.exe am Dienstag.',
     studyPrograms: ['Wirtschaftsinformatik (B.Sc.)'],
     equipment: 'Beamer, Whiteboard, Steckdosenleisten, Zoom-Schaltung (Turowski/Beyer).',
-    responsibleContact: 'Fach-Mentoren Wirtschaftsinformatik'
+    responsibleContact: 'Fach-Mentoren Wirtschaftsinformatik',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468'
   },
   {
     room: 'G29-K058',
@@ -475,7 +499,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     purpose: 'Keller-Seminarraum: Bachelor Ingenieurinformatik & AI-Engineering am Dienstag.',
     studyPrograms: ['Ingenieurinformatik (B.Sc.)', 'AI-Engineering (B.Sc.)'],
     equipment: 'Beamer, Whiteboard, Rechner-Arbeitsplätze.',
-    responsibleContact: 'Fach-Mentoren Ingenieurinformatik'
+    responsibleContact: 'Fach-Mentoren Ingenieurinformatik',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468'
   },
   {
     room: 'G29-K059',
@@ -484,7 +510,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     purpose: 'Keller-Seminarraum: Bachelor Computervisualistik am Dienstag.',
     studyPrograms: ['Computervisualistik (B.Sc.)'],
     equipment: 'Beamer, Whiteboard, Steckdosen, Zoom-Schaltung (Prof. Preim).',
-    responsibleContact: 'Fach-Mentoren Computervisualistik'
+    responsibleContact: 'Fach-Mentoren Computervisualistik',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468'
   },
   {
     room: 'G20-335',
@@ -493,7 +521,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     purpose: 'Seminarraum: Bachelor Bilinguale Informatik (BiBa, hybrid) am Dienstag ab 14:00 Uhr.',
     studyPrograms: ['Bilinguale Informatik / BiBa (B.Sc.)'],
     equipment: 'Hybrid-Videokonferenztechnik, Beamer, Whiteboard.',
-    responsibleContact: 'Claudia Krull, Darija Grisanova, BiBa-Mentoren'
+    responsibleContact: 'Claudia Krull, Darija Grisanova, BiBa-Mentoren',
+    googleMapsUrl: 'https://maps.google.com/?q=52.14028,11.64344',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+20+OVGU&ll=52.14028,11.64344'
   },
   {
     room: 'G29-333 / G29-318',
@@ -501,7 +531,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     floor: '3. Obergeschoss',
     purpose: 'Freie Arbeits- und Lernräume: Ausweichoptionen bei Überlauf der Planungsgruppen.',
     equipment: 'Tische, Strom, WLAN.',
-    notes: 'Können ohne Voranmeldung als Puffer genutzt werden.'
+    notes: 'Können ohne Voranmeldung als Puffer genutzt werden.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468'
   },
   {
     room: 'G11 Werkstatt',
@@ -509,7 +541,9 @@ export const ROOMS_DATA: RoomInfo[] = [
     floor: 'Erdgeschoss',
     purpose: 'UMD Racing Formula Student Werkstatt: Station der Campusrallye am Montag.',
     equipment: 'Rennwagen, Demonstratoren, Werkzeuge.',
-    responsibleContact: 'UMD Racing e.V.'
+    responsibleContact: 'UMD Racing e.V.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13970,11.64160',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+11+OVGU&ll=52.13970,11.64160'
   },
   {
     room: 'G22 Foyer / DoJo',
@@ -517,7 +551,96 @@ export const ROOMS_DATA: RoomInfo[] = [
     floor: 'Erdgeschoss',
     purpose: 'Campus Welcome Center, Studentenwerk Lerncafé / DoJo (Rallye-Station & Markt der Möglichkeiten).',
     equipment: 'Infostände, Sitzgelegenheiten.',
-    responsibleContact: 'Studentenwerk & OVGU Zentral'
+    responsibleContact: 'Studentenwerk & OVGU Zentral',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13812,11.64251',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+22+OVGU&ll=52.13812,11.64251'
+  }
+];
+
+export const CAMPUS_LOCATIONS: CampusLocation[] = [
+  {
+    id: 'g29',
+    name: 'Gebäude 29 (Fakultät für Informatik / FIN)',
+    badge: 'Zentraler Knotenpunkt',
+    address: 'Universitätsplatz 2, 39106 Magdeburg',
+    description: 'Hauptstandort der E-Woche: Großer Hörsaal (G29-307), FaRaFIN-Büro (G29-103), Fachseminarräume und Innenhof.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
+    rooms: ['G29-307', 'G29-103', 'G29-301', 'G29-412', 'G29-336', 'G29-K058', 'G29-K059', 'G29-333', 'G29-318'],
+    keyEvents: ['Hello Students Begrüßung', 'Bachelor & Master Studiumsplanung', 'Spieleabend', 'Instaparty', 'Master-Brunch']
+  },
+  {
+    id: 'g20',
+    name: 'Gebäude 20 (BiBa Seminarraum)',
+    badge: 'Studiengang BiBa',
+    address: 'Universitätsplatz 2, 39106 Magdeburg',
+    description: 'Standort für die Bilinguale Informatik (BiBa) Studiumsplanung in Raum G20-335 am Dienstag.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.14028,11.64344',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+20+OVGU&ll=52.14028,11.64344',
+    rooms: ['G20-335'],
+    keyEvents: ['BiBa Studiumsplanung (Dienstag 14:00 Uhr)']
+  },
+  {
+    id: 'mensa',
+    name: 'Mensa UniCampus & Campus Welcome Center (G22)',
+    badge: 'Verpflegung & Service',
+    address: 'Universitätsplatz 2, 39106 Magdeburg',
+    description: 'Mensa für Bits & Bites Mensagang sowie Gebäude 22 (Studentenwerk DoJo, Lerncafé und Markt der Möglichkeiten).',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13812,11.64251',
+    appleMapsUrl: 'https://maps.apple.com/?q=Mensa+UniCampus+Magdeburg&ll=52.13812,11.64251',
+    rooms: ['Mensa Speisesaal', 'Validierungsterminals', 'G22 DoJo / Lerncafé', 'G22 Innenhof'],
+    keyEvents: ['Bits & Bites Mensagang (Montag 13:30 Uhr)', 'Markt der Möglichkeiten (Donnerstag 11:00 Uhr)']
+  },
+  {
+    id: 'g11',
+    name: 'Gebäude 11 (UMD Racing Werkstatt)',
+    badge: 'Campusrallye Station',
+    address: 'Universitätsplatz 2, 39106 Magdeburg',
+    description: 'Werkstatt des Formula Student Rennteams UMD Racing e.V. mit Rennwagen und Fahrsimulator.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13970,11.64160',
+    appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+11+OVGU&ll=52.13970,11.64160',
+    rooms: ['G11 Werkstatt'],
+    keyEvents: ['Campusrallye Route 5 (Montag 15:00 Uhr)']
+  },
+  {
+    id: 'hassel',
+    name: 'Hasselbachplatz & Magdeburger Kneipenszene',
+    badge: 'Abendprogramm',
+    address: 'Hasselbachplatz, 39104 Magdeburg',
+    description: 'Zentraler Treffpunkt für die Kneipentour und den Barabend am Dienstagabend.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.12282,11.62775',
+    appleMapsUrl: 'https://maps.apple.com/?q=Hasselbachplatz+Magdeburg&ll=52.12282,11.62775',
+    keyEvents: ['Kneipentour & Barabend (Dienstag 19:00 Uhr)']
+  },
+  {
+    id: 'nordpark',
+    name: 'Nordpark Magdeburg (Grillwiese)',
+    badge: 'Wochenabschluss',
+    address: 'Hohepfortestraße, 39106 Magdeburg',
+    description: 'Große Parkanlage direkt nördlich des Campus. Traditionelles Kooperationsgrillen mit der Fachschaft Mathematik.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.14410,11.64350',
+    appleMapsUrl: 'https://maps.apple.com/?q=Nordpark+Magdeburg&ll=52.14410,11.64350',
+    keyEvents: ['Abschlussgrillen mit FaRaMath (Freitag 15:00 Uhr)']
+  },
+  {
+    id: 'festung',
+    name: 'Festung Mark',
+    badge: 'Kulturareal',
+    address: 'Hohepfortewall 1, 39104 Magdeburg',
+    description: 'Historische Festungsanlage unweit des Campus mit Stübchen, Biergarten und Freiflächen.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13670,11.64680',
+    appleMapsUrl: 'https://maps.apple.com/?q=Festung+Mark+Magdeburg&ll=52.13670,11.64680',
+    keyEvents: ['Donnerstagabend (gemütlicher Ausklang)']
+  },
+  {
+    id: 'opernhaus',
+    name: 'Opernhaus Magdeburg',
+    badge: 'Auftakt OVGU',
+    address: 'Universitätsplatz 9, 39104 Magdeburg',
+    description: 'Veranstaltungsort der feierlichen Immatrikulationsfeier der Universität zum Auftakt der Einführungswoche.',
+    googleMapsUrl: 'https://maps.google.com/?q=52.13630,11.63750',
+    appleMapsUrl: 'https://maps.apple.com/?q=Opernhaus+Magdeburg&ll=52.13630,11.63750',
+    keyEvents: ['Offizielle Immatrikulationsfeier (Montag 10:30 Uhr)']
   }
 ];
 
