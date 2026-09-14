@@ -5,13 +5,25 @@ import { ScheduleView } from './components/ScheduleView';
 import { HandbookView } from './components/HandbookView';
 import { MapView } from './components/MapView';
 import { NextEventBanner } from './components/NextEventBanner';
+import { AudienceFilter } from './components/AudienceFilter';
+import type { AudienceFilterValue } from './components/AudienceFilter';
 import { InstallModal } from './components/InstallModal';
+import { DAYS_SCHEDULE } from './data/portalData';
 import { Calendar, BookOpen, MapPin, Wifi } from 'lucide-react';
 
 export function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('schedule');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedAudience, setSelectedAudience] = useState<AudienceFilterValue>('all');
   const [isInstallModalOpen, setIsInstallModalOpen] = useState<boolean>(false);
+
+  // Dynamic counts for each target audience
+  const audienceCounts = {
+    all: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.length, 0),
+    bachelor: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.filter(it => it.audiences.includes('bachelor')).length, 0),
+    international: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.filter(it => it.audiences.includes('international')).length, 0),
+    master: DAYS_SCHEDULE.reduce((acc, d) => acc + d.items.filter(it => it.audiences.includes('master')).length, 0)
+  };
 
   return (
     <div className="min-h-screen bg-[#090d16] text-zinc-100 flex flex-col pb-20 sm:pb-8 selection:bg-farafin selection:text-white">
@@ -25,12 +37,32 @@ export function App() {
 
       {/* Main Content Container */}
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6">
-        {/* Next Event Ticker & Full Calendar / PWA Banner */}
-        <NextEventBanner onOpenInstallModal={() => setIsInstallModalOpen(true)} />
+        {/* Top-Level Target Audience Filter (Alles / Bachelor / Internationals / Master) */}
+        <AudienceFilter
+          value={selectedAudience}
+          onChange={setSelectedAudience}
+          counts={audienceCounts}
+        />
 
-        {activeTab === 'schedule' && <ScheduleView searchQuery={searchQuery} />}
+        {/* Next Event Ticker & Full Calendar / PWA Banner */}
+        <NextEventBanner
+          onOpenInstallModal={() => setIsInstallModalOpen(true)}
+          selectedAudience={selectedAudience}
+        />
+
+        {activeTab === 'schedule' && (
+          <ScheduleView
+            searchQuery={searchQuery}
+            selectedAudience={selectedAudience}
+          />
+        )}
         {activeTab === 'handbook' && <HandbookView searchQuery={searchQuery} />}
-        {activeTab === 'map' && <MapView searchQuery={searchQuery} />}
+        {activeTab === 'map' && (
+          <MapView
+            searchQuery={searchQuery}
+            selectedAudience={selectedAudience}
+          />
+        )}
       </main>
 
       {/* App Install Guide Modal */}

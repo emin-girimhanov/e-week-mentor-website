@@ -2,22 +2,48 @@ import { useState } from 'react';
 import type { FC } from 'react';
 import { DAYS_SCHEDULE } from '../data/portalData';
 import { generateFullWeekICS, downloadICSFile } from '../utils/calendar';
+import type { AudienceFilterValue } from './AudienceFilter';
 import { Calendar, Download, Smartphone, MapPin, Navigation, ExternalLink, Check } from 'lucide-react';
 
 interface NextEventBannerProps {
   onOpenInstallModal: () => void;
+  selectedAudience?: AudienceFilterValue;
 }
 
-export const NextEventBanner: FC<NextEventBannerProps> = ({ onOpenInstallModal }) => {
+export const NextEventBanner: FC<NextEventBannerProps> = ({ onOpenInstallModal, selectedAudience = 'all' }) => {
   const [downloaded, setDownloaded] = useState(false);
 
-  // Default next event is the very first critical mentor shift on Monday
-  const nextEvent = DAYS_SCHEDULE[0]?.items[0];
-  const nextDate = DAYS_SCHEDULE[0]?.date;
+  // Find next event matching selected audience
+  let nextEvent = DAYS_SCHEDULE[0]?.items[0];
+  let nextDate = DAYS_SCHEDULE[0]?.date;
+  let nextDayName = DAYS_SCHEDULE[0]?.dayName;
+
+  if (selectedAudience !== 'all') {
+    for (const day of DAYS_SCHEDULE) {
+      const match = day.items.find(it => it.audiences.includes(selectedAudience));
+      if (match) {
+        nextEvent = match;
+        nextDate = day.date;
+        nextDayName = day.dayName;
+        break;
+      }
+    }
+  }
 
   const handleDownloadFullCalendar = () => {
-    const icsContent = generateFullWeekICS(DAYS_SCHEDULE);
-    downloadICSFile(icsContent, 'FaRaFIN-E-Woche-2026-Mentoren.ics');
+    const daysToExport = selectedAudience !== 'all'
+      ? DAYS_SCHEDULE.map(d => ({
+          ...d,
+          items: d.items.filter(it => it.audiences.includes(selectedAudience))
+        })).filter(d => d.items.length > 0)
+      : DAYS_SCHEDULE;
+
+    const filename = selectedAudience !== 'all'
+      ? `FaRaFIN-E-Woche-2026-${selectedAudience.toUpperCase()}.ics`
+      : 'FaRaFIN-E-Woche-2026-Mentoren.ics';
+
+    const icsContent = generateFullWeekICS(daysToExport);
+    downloadICSFile(icsContent, filename);
     setDownloaded(true);
     setTimeout(() => setDownloaded(false), 3000);
   };
@@ -36,7 +62,7 @@ export const NextEventBanner: FC<NextEventBannerProps> = ({ onOpenInstallModal }
             </div>
 
             <span className="text-xs text-zinc-400 font-medium">
-              Montag, {nextDate}
+              {nextDayName}, {nextDate}
             </span>
           </div>
 

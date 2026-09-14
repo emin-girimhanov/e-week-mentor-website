@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import type { FC } from 'react';
 import { DAYS_SCHEDULE, ROOMS_DATA } from '../data/portalData';
+import type { AudienceFilterValue } from './AudienceFilter';
 import { InteractiveMap } from './InteractiveMap';
 import { MapPin, Navigation, ExternalLink, Clock, Users, Layers, Info, Map as MapIcon, Table } from 'lucide-react';
 
 interface MapViewProps {
   searchQuery: string;
+  selectedAudience?: AudienceFilterValue;
 }
 
-export const MapView: FC<MapViewProps> = ({ searchQuery }) => {
+export const MapView: FC<MapViewProps> = ({ searchQuery, selectedAudience = 'all' }) => {
   const [activeSubTab, setActiveSubTab] = useState<'table' | 'interactive' | 'rooms'>('table');
   const [selectedDayId, setSelectedDayId] = useState<string>('all');
 
@@ -19,6 +21,12 @@ export const MapView: FC<MapViewProps> = ({ searchQuery }) => {
     }
 
     const items = day.items.filter(item => {
+      // 1. Audience Filter
+      if (selectedAudience !== 'all' && !item.audiences.includes(selectedAudience)) {
+        return false;
+      }
+
+      // 2. Search Query
       if (!searchQuery.trim()) return true;
       const q = searchQuery.toLowerCase();
       const matchTitle = item.title.toLowerCase().includes(q);
@@ -172,6 +180,22 @@ export const MapView: FC<MapViewProps> = ({ searchQuery }) => {
 
                             {/* 2. Programmpunkt & Offizielle Uhrzeit */}
                             <td className="py-3 px-3 align-top">
+                              <div className="flex items-center gap-1 flex-wrap mb-1">
+                                {item.audiences.map(aud => (
+                                  <span
+                                    key={aud}
+                                    className={`text-[9px] uppercase font-mono font-medium px-1.5 py-0.2 rounded border ${
+                                      aud === 'bachelor'
+                                        ? 'bg-blue-950/60 text-blue-300 border-blue-800/50'
+                                        : aud === 'master'
+                                        ? 'bg-purple-950/60 text-purple-300 border-purple-800/50'
+                                        : 'bg-emerald-950/60 text-emerald-300 border-emerald-800/50'
+                                    }`}
+                                  >
+                                    {aud === 'international' ? 'International' : aud}
+                                  </span>
+                                ))}
+                              </div>
                               <strong className="text-zinc-100 block text-xs mb-0.5">
                                 {item.title}
                               </strong>

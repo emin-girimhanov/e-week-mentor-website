@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 import type { FC } from 'react';
 import { DAYS_SCHEDULE } from '../data/portalData';
 import type { ScheduleItem } from '../data/portalData';
+import type { AudienceFilterValue } from './AudienceFilter';
 import { Clock, MapPin, Users, CheckSquare, Square, Info, Calendar } from 'lucide-react';
 import { generateSingleICS, downloadICSFile, getGoogleCalendarUrl } from '../utils/calendar';
 
 interface ScheduleViewProps {
   searchQuery: string;
+  selectedAudience?: AudienceFilterValue;
 }
 
-export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery }) => {
+export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery, selectedAudience = 'all' }) => {
   const [selectedDayId, setSelectedDayId] = useState<string>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>(() => {
@@ -48,10 +50,17 @@ export const ScheduleView: FC<ScheduleViewProps> = ({ searchQuery }) => {
     }
 
     const items = day.items.filter(item => {
+      // 1. Audience Filter
+      if (selectedAudience !== 'all' && !item.audiences.includes(selectedAudience)) {
+        return false;
+      }
+
+      // 2. Category Filter
       if (selectedCategory !== 'all' && item.category !== selectedCategory) {
         return false;
       }
 
+      // 3. Search Query
       if (!searchQuery.trim()) return true;
       const q = searchQuery.toLowerCase();
       const matchTitle = item.title.toLowerCase().includes(q);
@@ -190,10 +199,26 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, dateStr, checkedItems, onTo
           </span>
         </div>
 
-        <span className="flex items-center gap-1 text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-800">
-          <MapPin className="w-3 h-3 text-zinc-400" />
-          {item.roomBadge}
-        </span>
+        <div className="flex items-center gap-1.5 flex-wrap">
+          {item.audiences.map(aud => (
+            <span
+              key={aud}
+              className={`text-[10px] uppercase font-mono font-medium px-1.5 py-0.5 rounded border ${
+                aud === 'bachelor'
+                  ? 'bg-blue-950/60 text-blue-300 border-blue-800/50'
+                  : aud === 'master'
+                  ? 'bg-purple-950/60 text-purple-300 border-purple-800/50'
+                  : 'bg-emerald-950/60 text-emerald-300 border-emerald-800/50'
+              }`}
+            >
+              {aud === 'international' ? 'International' : aud}
+            </span>
+          ))}
+          <span className="flex items-center gap-1 text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-800">
+            <MapPin className="w-3 h-3 text-zinc-400" />
+            {item.roomBadge}
+          </span>
+        </div>
       </div>
 
       {/* Title */}

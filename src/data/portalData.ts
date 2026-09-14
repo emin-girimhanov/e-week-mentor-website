@@ -1,3 +1,5 @@
+export type TargetAudience = 'bachelor' | 'master' | 'international';
+
 export interface ScheduleItem {
   id: string;
   time: string;
@@ -8,6 +10,7 @@ export interface ScheduleItem {
   location: string;
   roomBadge: string;
   category: 'orga' | 'lotsendienst' | 'begruessung' | 'mensa' | 'rallye' | 'planung' | 'party' | 'kultur';
+  audiences: TargetAudience[];
   responsible: string[];
   description: string;
   checklist?: string[];
@@ -90,6 +93,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Magistrale, Campus Welcome Center bis FIN (G29)',
         roomBadge: 'Campus / Magistrale',
         category: 'lotsendienst',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['Orga-Team', 'Helfer-Team', 'Alle Mentoren'],
         description: 'Erstsemester vom Campus Welcome Center und von der Immatrikulationsfeier zur FIN lotsen.',
         checklist: [
@@ -110,6 +114,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
         category: 'begruessung',
+        audiences: ['bachelor'],
         responsible: ['Dekanat', 'Micha', 'Davide', 'Emin', 'Mentoren-Tandems'],
         description: 'Offizielle Begrüßung der Bachelor-Erstis durch Dekanat und Fachschaftsrat. Sicherheitsbelehrung und Vorstellung des Mentoring-Programms.',
         checklist: [
@@ -130,6 +135,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, Foyer & Besprechungsraum',
         roomBadge: 'G29-412 / Foyer',
         category: 'orga',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['Emin', 'Helfer-Team'],
         description: 'Ausgabe der gepackten Ersti-Beutel mit Goodies, Gutscheinen und Einkaufswagenchips an alle anwesenden Erstsemester.',
         checklist: [
@@ -148,6 +154,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Mensa UniCampus',
         roomBadge: 'Mensa',
         category: 'mensa',
+        audiences: ['bachelor'],
         responsible: ['Mentoren-Tandems'],
         description: 'Erste gemeinsame Mensa-Runde mit den Mentoren-Gruppen. Erstsemester-Karten an den Terminals validieren.',
         checklist: [
@@ -167,6 +174,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Start: Vorplatz Gebäude 29 (FIN)',
         roomBadge: 'Vorplatz G29',
         category: 'rallye',
+        audiences: ['bachelor', 'international'],
         responsible: ['Davide (Leitung)', 'Emin', 'Mentoren-Tandems'],
         description: 'Große Campusrallye mit rund 150 bis 200 Erstis in 15 bis 20 Kleingruppen über 5 verschiedene Campus-Routen.',
         checklist: [
@@ -187,6 +195,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
         category: 'party',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['Yousef', 'Lars', 'Helfer-Pool'],
         description: 'Gemütlicher Ausklang des ersten Tages mit Brettspielen, Konsolenecke, Multiplayer-Games und Vernetzung.',
         checklist: [
@@ -213,6 +222,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
         category: 'begruessung',
+        audiences: ['bachelor', 'international'],
         responsible: ['Emin (Moderation)', 'Claudia', 'Dr. Christian Beyer', 'regiocom SE', 'Jana Görs (QM)'],
         description: 'Impulsvorträge und Unternehmensvorstellung vor Beginn der Stundenplanerstellung.',
         checklist: [
@@ -232,6 +242,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29 & Gebäude 20 (Fachseminarräume)',
         roomBadge: 'Fachräume FIN',
         category: 'planung',
+        audiences: ['bachelor'],
         responsible: ['Emin (Gesamtleitung)', 'Fach-Mentoren pro Raum', 'Claudia & Darija (BiBa)'],
         description: 'Kerntag der E-Woche: Stundenplanerstellung, LSF-Einführung, Prüfungsordnung und Modulbelegung.',
         checklist: [
@@ -254,6 +265,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Treffpunkt Vorplatz G29, Richtung Hasselbachplatz',
         roomBadge: 'Hasselbachplatz',
         category: 'party',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['Diana (Koordination)', 'Mentoren-Teams'],
         description: 'Traditionelle Kneipentour durch Magdeburger Bars und Kneipen rund um den Hasselbachplatz.',
         checklist: [
@@ -282,6 +294,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
         category: 'begruessung',
+        audiences: ['international', 'master'],
         responsible: ['Studiendekanat', 'Claudia Krull', 'FaRaFIN', 'Christin Gebauer'],
         description: 'Offizielle Begrüßung aller neuen Master- und internationalen Studierenden. Zentrale Anlaufstellen für Visum, Prüfungsamt und Nachzügler.',
         checklist: [
@@ -300,6 +313,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, Großer Hörsaal & Seminarräume',
         roomBadge: 'G29-307 / Seminarräume',
         category: 'planung',
+        audiences: ['master', 'international'],
         responsible: ['Claudia', 'Magnus', 'Simin', 'Emin', 'Master-Mentoren'],
         description: 'Fachspezifische Studienplanung auf Englisch für MDKE (Data Science), MDE (Digital Engineering) und Visual Computing.',
         checklist: [
@@ -318,6 +332,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
         category: 'begruessung',
+        audiences: ['bachelor', 'international'],
         responsible: ['Emin (Moderation)', 'ArbeiterKind.de', 'Kamelia Dobreva (FDIBA)', 'Studentenwerk'],
         description: 'Vorstellung von ArbeiterKind.de, dem deutsch-bulgarischen Doppelabschluss FDIBA und Sozialberatung des Studentenwerks.',
         checklist: [
@@ -335,6 +350,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Magdeburg Innenstadt, Domplatz & Elbufer',
         roomBadge: 'Magdeburg City',
         category: 'rallye',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['Davide (Leitung)', 'Timon Christ (regiocom)', 'Mentoren-Teams'],
         description: 'Erkundung der Stadt Magdeburg mit Fotospots, Elbpromenade, Kultur-Rätseln und exklusiver regiocom Challenge-Station.',
         checklist: [
@@ -354,6 +370,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, Innenhof & Foyer',
         roomBadge: 'G29 Innenhof',
         category: 'party',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['Diana', 'Lukas', 'Lars', 'Bar-Team', 'Grill-Team'],
         description: 'Große Fachschaftsparty im Innenhof von Gebäude 29 mit Musik, Barbetrieb, Grill mit veganen und vegetarischen Optionen.',
         checklist: [
@@ -383,6 +400,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, FaRaFIN-Büro',
         roomBadge: 'G29-103',
         category: 'orga',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['FaRaFIN Orga-Team'],
         description: 'Gemeinsames Frühstück, Kaffee und kurzes Lage-Briefing nach der Instaparty.',
         checklist: [
@@ -401,6 +419,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 22, Innenhof & Foyer',
         roomBadge: 'G22 Innenhof',
         category: 'kultur',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['FaRaFIN Stand-Team', 'OVGU Zentral'],
         description: 'Große Hochschulmesse für studentische Initiativen, Sportgruppen, Vereine und Gremien.',
         checklist: [
@@ -418,6 +437,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Festung Mark bzw. Gebäude 29',
         roomBadge: 'Festung Mark / G29',
         category: 'party',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['Lars', 'Helfer-Team'],
         description: 'Gemütlicher Abend nach Helferkapazität: Besuch des Stübchens in der Festung Mark oder kleiner Spieleabend in G29.',
         checklist: [
@@ -443,6 +463,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Gebäude 29, Großer Hörsaal',
         roomBadge: 'G29-307',
         category: 'kultur',
+        audiences: ['master', 'international'],
         responsible: ['Simin', 'Helfer-Team'],
         description: 'Gemeinsames Mitbring-Frühstück und Networking für Masterstudierende und internationale Erstis.',
         checklist: [
@@ -461,6 +482,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         location: 'Nordpark Magdeburg (Grillwiese)',
         roomBadge: 'Nordpark',
         category: 'party',
+        audiences: ['bachelor', 'master', 'international'],
         responsible: ['Lars', 'Lukas', 'Kooperation FaRaMath', 'Grill-Team'],
         description: 'Großes Abschlussgrillen der E-Woche gemeinsam mit der Fachschaft Mathematik (FMA / FaRaMath).',
         checklist: [
@@ -470,32 +492,6 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
           'Müllsäcke aufhängen und Parkfläche nach Ende komplett säubern'
         ],
         importantNote: 'Genehmigung für den Grillplatz im Nordpark liegt vor. Lärmschutz ab 22:00 Uhr beachten.'
-      }
-    ]
-  },
-  {
-    id: 'wochenende',
-    dayName: 'Samstag & Sonntag',
-    date: '10./11.10.2026',
-    focus: 'Mentoring-Dinner & Auswertung',
-    items: [
-      {
-        id: 'we-1',
-        time: 'Flexibel nach Absprache',
-        meetingTime: '10 Min vor Beginn',
-        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
-        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
-        title: 'Mentoring-Dinner & Lessons Learned',
-        location: 'G29-307 oder Restaurant in Magdeburg',
-        roomBadge: 'G29 / Extern',
-        category: 'kultur',
-        responsible: ['Emin', 'nossel', 'Kern-Orga', 'Alle Mentoren'],
-        description: 'Dankeschön-Essen für alle Mentorinnen, Mentoren und Helfer. Feedbackrunde und Übergabe der Typst-Zertifikate.',
-        checklist: [
-          'Offizielle Typst-Helferzertifikate ausdrucken und überreichen',
-          'Feedback-Punkte auf den Miro-Boards WiSe 2026/2027 festhalten',
-          'Dokumentation und Fotos archivieren'
-        ]
       }
     ]
   }
