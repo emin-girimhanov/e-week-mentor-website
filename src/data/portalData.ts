@@ -196,8 +196,30 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
     id: 'dienstag',
     dayName: 'Dienstag',
     date: '06.10.2026',
-    focus: 'Bachelor Studiumsplanung.exe & Kneipentour',
+    focus: 'Understanding Magdeburg, Bachelor Studiumsplanung.exe & Instaparty',
     items: [
+      {
+        id: 'di-understanding',
+        time: '11:00 bis 13:00 Uhr',
+        meetingTime: '10:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
+        title: 'Understanding Magdeburg',
+        location: 'Gebäude 29, Großer Hörsaal',
+        roomBadge: 'G29-307',
+        category: 'orga',
+        audiences: ['international', 'master', 'bachelor'],
+        language: 'bilingual',
+        responsible: ['Magnus', 'Support Internationals (SI@FIN)', 'DAAD FIT'],
+        description: 'Interaktiver Workshop und Austausch für internationale Studierende zum Ankommen in Magdeburg: Den neuen Wohnort, die Stadt und die Menschen vor Ort verstehen, Alltagstipps erhalten und gemeinsam vernetzen (inkl. Onboarding-Spiel „Alex\' Neuanfang“).',
+        checklist: [
+          'Hörsaal G29-307 ab 10:45 Uhr für Teilnehmende aufschließen und lüften',
+          'Materialien und Onboarding-Brettspiele („Alex\' Neuanfang“) im Hörsaal bereitstellen',
+          'Internationale Studierende herzlich willkommen heißen und bei der Vernetzung unterstützen'
+        ],
+        importantNote: 'Geöffnet für alle internationalen Studierenden (Bachelor, Master und Austauschprogramme). Der große Hörsaal G29-307 bietet maximale Kapazität und Planungssicherheit.',
+        mentorInstructions: 'Seid als Ansprechpersonen vor Ort, beantwortet offene Fragen zum Alltag in Magdeburg und unterstützt die Internationals beim Ankommen.'
+      },
       {
         id: 'di-1',
         time: '13:00 bis 13:45 Uhr',
@@ -247,23 +269,24 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         id: 'di-3',
         time: '19:00 Uhr bis Open End',
         meetingTime: '18:50 Uhr',
-        googleMapsUrl: 'https://maps.google.com/?q=52.12282,11.62775',
-        appleMapsUrl: 'https://maps.apple.com/?q=Hasselbachplatz+Magdeburg&ll=52.12282,11.62775',
-        title: 'Kneipentour & Barabend',
-        location: 'Treffpunkt Vorplatz G29, Richtung Hasselbachplatz',
-        roomBadge: 'Hasselbachplatz',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
+        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
+        title: 'Legendäre Instaparty',
+        location: 'Gebäude 29, Innenhof & Foyer',
+        roomBadge: 'G29 Innenhof',
         category: 'party',
         audiences: ['bachelor', 'master', 'international'],
         language: 'bilingual',
-        responsible: ['Diana (Koordination)', 'Mentoren-Teams'],
-        description: 'Traditionelle Kneipentour durch Magdeburger Bars und Kneipen rund um den Hasselbachplatz.',
+        responsible: ['Diana', 'Lukas', 'Lars', 'Bar-Team', 'Grill-Team'],
+        description: 'Große Fachschaftsparty im Innenhof von Gebäude 29 mit Live-DJ, Grill mit Bratwurst sowie veganen und vegetarischen Optionen. Mit freundlicher Unterstützung von Plasmaservice Europe.',
         checklist: [
-          'Gruppen in max. 15 bis 20 Personen aufteilen',
-          'Feste Mentoren-Tandems pro Gruppe bestimmen',
-          'Alkoholfreie Optionen und Awareness aktiv gewährleisten',
-          'Notfallkontakt zu Diana und Emin bereithalten'
+          'Bar-Schichtplan in G29-103 aushängen',
+          'Getränkelieferung (Plasmaservice Sponsoring) prüfen und kühlen',
+          'Grillgut und vegane Alternativen vorbereiten',
+          'DSGVO-Foto-Opt-Out Bändchen am Einlass bereithalten',
+          'Lärmschutz und Einlasskontrolle überwachen'
         ],
-        importantNote: 'Strikte Freiwilligkeit bei allen Trinkspielen. Niemand wird zum Alkoholkonsum gedrängt.'
+        mentorInstructions: 'Mentoren unterstützen abwechselnd die Bar- und Einlassschichten gemäß Einteilungsplan.'
       }
     ]
   },
@@ -271,7 +294,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
     id: 'mittwoch',
     dayName: 'Mittwoch',
     date: '07.10.2026',
-    focus: 'Master-Planung, Stadtrallye & Instaparty',
+    focus: 'Master-Planung, Stadtrallye & Offizielle Ersti-Party',
     items: [
       {
         id: 'mi-1',
@@ -350,31 +373,29 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
           'Kleingruppen bilingual aufteilen',
           'Station bei regiocom ansteuern (Koordination Timon Christ)',
           'SelectLine Trinkflaschen als Etappengewinne bereithalten',
-          'Rückkehr nach G29 pünktlich vor Beginn der Instaparty anleiten'
+          'Rückkehr nach G29 bzw. Weiterleitung zur Ersti-Party Festung Mark anleiten'
         ]
       },
       {
         id: 'mi-5',
-        time: '19:00 Uhr bis Open End',
-        meetingTime: '18:50 Uhr',
-        googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
-        appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
-        title: 'Legendäre Instaparty',
-        location: 'Gebäude 29, Innenhof & Foyer',
-        roomBadge: 'G29 Innenhof',
+        time: '20:00 Uhr bis Open End',
+        meetingTime: '19:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.13670,11.64680',
+        appleMapsUrl: 'https://maps.apple.com/?q=Festung+Mark+Magdeburg&ll=52.13670,11.64680',
+        title: 'Offizielle Ersti-Party der OvGU',
+        location: 'Festung Mark, Hohepfortewall 1',
+        roomBadge: 'Festung Mark',
         category: 'party',
         audiences: ['bachelor', 'master', 'international'],
         language: 'bilingual',
-        responsible: ['Diana', 'Lukas', 'Lars', 'Bar-Team', 'Grill-Team'],
-        description: 'Große Fachschaftsparty im Innenhof von Gebäude 29 mit Musik, Barbetrieb, Grill mit veganen und vegetarischen Optionen.',
+        responsible: ['FaRaFIN', 'Festung Mark Event-Team'],
+        description: 'Die offizielle Erstsemesterparty an der Magdeburger Eventlocation Festung Mark. Kommt zusammen mit euren Mitstudierenden und feiert den Semesterstart!',
         checklist: [
-          'Bar-Schichtplan in G29-103 aushängen',
-          'Getränkelieferung (Plasmaservice Sponsoring) prüfen und kühlen',
-          'Grillgut und vegane Alternativen vorbereiten',
-          'DSGVO-Foto-Opt-Out Bändchen am Einlass bereithalten',
-          'Lärmschutz und Einlasskontrolle überwachen'
+          'Ticket-Verkauf: Bis Dienstag 06.10. vergünstigte 5 € Tickets über Mentoren ausgegeben (nur Barzahlung!)',
+          'Treffpunkt für gemeinsame Anreise von der FIN organisieren',
+          'Awareness und sicheren Heimweg für Erstis im Blick behalten'
         ],
-        mentorInstructions: 'Mentoren unterstützen abwechselnd die Bar- und Einlassschichten gemäß Einteilungsplan.'
+        importantNote: 'Sondertickets: Nur 5 € statt 8 € VVK / 10 € Abendkasse. Nur Barzahlung bis Dienstag!'
       }
     ]
   },
@@ -382,7 +403,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
     id: 'donnerstag',
     dayName: 'Donnerstag',
     date: '08.10.2026',
-    focus: 'Markt der Möglichkeiten & Spieleabend',
+    focus: 'Markt der Möglichkeiten & Kneipentour',
     items: [
       {
         id: 'do-1',
@@ -397,7 +418,7 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
         audiences: ['bachelor', 'master', 'international'],
         language: 'de',
         responsible: ['FaRaFIN Orga-Team'],
-        description: 'Gemeinsames Frühstück, Kaffee und kurzes Lage-Briefing nach der Instaparty.',
+        description: 'Gemeinsames Frühstück, Kaffee und kurzes Lage-Briefing für Mentoren und Helfer.',
         checklist: [
           'Kaffee kochen und Brötchen bereitstellen',
           'Kurzes 10-Minuten Feedback zum Vortag',
@@ -425,22 +446,25 @@ export const DAYS_SCHEDULE: DaySchedule[] = [
       },
       {
         id: 'do-3',
-        time: '18:00 Uhr bis Open End',
-        meetingTime: '17:50 Uhr',
-        googleMapsUrl: 'https://maps.google.com/?q=52.13670,11.64680',
-        appleMapsUrl: 'https://maps.apple.com/?q=Festung+Mark+Magdeburg&ll=52.13670,11.64680',
-        title: 'Abendprogramm: Festung Mark oder Mini-Spieleabend',
-        location: 'Festung Mark bzw. Gebäude 29',
-        roomBadge: 'Festung Mark / G29',
+        time: '19:00 Uhr bis Open End',
+        meetingTime: '18:50 Uhr',
+        googleMapsUrl: 'https://maps.google.com/?q=52.12282,11.62775',
+        appleMapsUrl: 'https://maps.apple.com/?q=Hasselbachplatz+Magdeburg&ll=52.12282,11.62775',
+        title: 'Kneipentour & Barabend',
+        location: 'Treffpunkt Vorplatz G29, Richtung Hasselbachplatz',
+        roomBadge: 'Hasselbachplatz',
         category: 'party',
         audiences: ['bachelor', 'master', 'international'],
         language: 'bilingual',
-        responsible: ['Lars', 'Helfer-Team'],
-        description: 'Gemütlicher Abend nach Helferkapazität: Besuch des Stübchens in der Festung Mark oder kleiner Spieleabend in G29.',
+        responsible: ['Diana (Koordination)', 'Mentoren-Teams'],
+        description: 'Traditionelle Kneipentour durch Magdeburger Bars und Kneipen rund um den Hasselbachplatz. Zieht mit uns durch Magdeburgs Kneipenszene und lernt andere Fakultäten kennen.',
         checklist: [
-          'Treffpunkt mit Erstis abstimmen',
-          'Bei Bedarf G29-307 als Schlechtwetter-Alternative aufschließen'
-        ]
+          'Gruppen in max. 15 bis 20 Personen aufteilen',
+          'Feste Mentoren-Tandems pro Gruppe bestimmen',
+          'Alkoholfreie Optionen und Awareness aktiv gewährleisten',
+          'Notfallkontakt zu Diana und Emin bereithalten'
+        ],
+        importantNote: 'Strikte Freiwilligkeit bei allen Trinkspielen. Niemand wird zum Alkoholkonsum gedrängt.'
       }
     ]
   },
@@ -501,7 +525,7 @@ export const ROOMS_DATA: RoomInfo[] = [
     room: 'G29-307',
     building: 'Gebäude 29 (FIN)',
     floor: '3. Obergeschoss',
-    purpose: 'Großer Hörsaal: Begrüßung, Kurzpräsentationen, Spieleabend, Master-Brunch, Bachelor Informatik Planung.',
+    purpose: 'Großer Hörsaal: Begrüßung, Understanding Magdeburg, Kurzpräsentationen, Spieleabend, Master-Brunch, Bachelor Informatik Planung.',
     studyPrograms: ['Informatik (Bachelor)', 'Master-Studiengänge (MDKE, MDE, VC)'],
     equipment: 'Beamer, Mikrofone, Hörsaalbestuhlung, HDMI-Pult, Klimaanlage.',
     notes: 'Ganztägig durchgehend gebucht. Zentrale Anlaufstelle bei Vollversammlungen.',
@@ -625,7 +649,7 @@ export const CAMPUS_LOCATIONS: CampusLocation[] = [
     googleMapsUrl: 'https://maps.google.com/?q=52.13903,11.64468',
     appleMapsUrl: 'https://maps.apple.com/?q=Gebaeude+29+FIN+OVGU&ll=52.13903,11.64468',
     rooms: ['G29-307', 'G29-103', 'G29-301', 'G29-412', 'G29-336', 'G29-K058', 'G29-K059', 'G29-333', 'G29-318'],
-    keyEvents: ['Hello Students Begrüßung', 'Bachelor & Master Studiumsplanung', 'Spieleabend', 'Instaparty', 'Master-Brunch']
+    keyEvents: ['Hello Students Begrüßung', 'Understanding Magdeburg', 'Bachelor & Master Studiumsplanung', 'Spieleabend', 'Instaparty', 'Master-Brunch']
   },
   {
     id: 'g20',
@@ -688,7 +712,7 @@ export const CAMPUS_LOCATIONS: CampusLocation[] = [
     description: 'Historische Festungsanlage unweit des Campus mit Stübchen, Biergarten und Freiflächen.',
     googleMapsUrl: 'https://maps.google.com/?q=52.13670,11.64680',
     appleMapsUrl: 'https://maps.apple.com/?q=Festung+Mark+Magdeburg&ll=52.13670,11.64680',
-    keyEvents: ['Donnerstagabend (gemütlicher Ausklang)']
+    keyEvents: ['Offizielle Ersti-Party der OvGU (Mittwoch 20:00 Uhr)']
   },
   {
     id: 'opernhaus',

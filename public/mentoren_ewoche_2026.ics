@@ -1,0 +1,293 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//FaRaFIN//E-Woche Mentoren//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FaRaFIN E-Woche 2026/27 (Mentoren)
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+UID:mo-2-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261005T120000
+DTEND:20261005T133000
+SUMMARY:FaRaFIN: Hello, Students! Begrüßung & Gruppeneinteilung
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 11:50 Uhr!\nOrt: Gebäude 29, Großer Hörsaal\nZuständig: Dekanat, Micha, Davide, Emin, Mentoren-Tandems\nOffizielle Begrüßung der Bachelor-Erstis durch Dekanat und Fachschaftsrat. Sicherheitsbelehrung und Vorstellung des Mentoring-Programms.
+LOCATION:Gebäude 29, Großer Hörsaal
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (11:50 Uhr) für Hello, Students! Begrüßung & Gruppeneinteilung
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mo-3-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261005T130000
+DTEND:20261005T133000
+SUMMARY:FaRaFIN: E-Beutel Ausgabe & Logistik
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 12:50 Uhr!\nOrt: Gebäude 29, Foyer & Besprechungsraum\nZuständig: Emin, Helfer-Team\nAusgabe der gepackten Ersti-Beutel mit Goodies, Gutscheinen und Einkaufswagenchips an alle anwesenden Erstsemester.
+LOCATION:Gebäude 29, Foyer & Besprechungsraum
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (12:50 Uhr) für E-Beutel Ausgabe & Logistik
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mo-4-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261005T133000
+DTEND:20261005T150000
+SUMMARY:FaRaFIN: Bits & Bites: Gemeinsamer Mensagang
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 13:20 Uhr!\nOrt: Mensa UniCampus\nZuständig: Mentoren-Tandems\nErste gemeinsame Mensa-Runde mit den Mentoren-Gruppen. Erstsemester-Karten an den Terminals validieren.
+LOCATION:Mensa UniCampus
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (13:20 Uhr) für Bits & Bites: Gemeinsamer Mensagang
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mo-5-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261005T150000
+DTEND:20261005T180000
+SUMMARY:FaRaFIN: Campusrallye (5 Routen)
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 14:50 Uhr!\nOrt: Start: Vorplatz Gebäude 29 (FIN)\nZuständig: Davide (Leitung), Emin, Mentoren-Tandems\nGroße Campusrallye mit rund 150 bis 200 Erstis in 15 bis 20 Kleingruppen über 5 verschiedene Campus-Routen.
+LOCATION:Start: Vorplatz Gebäude 29 (FIN)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (14:50 Uhr) für Campusrallye (5 Routen)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mo-6-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261005T170000
+DTEND:20261005T230000
+SUMMARY:FaRaFIN: Informatik-Spieleabend
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 16:50 Uhr!\nOrt: Gebäude 29, Großer Hörsaal\nZuständig: Yousef, Lars, Helfer-Pool\nGemütlicher Ausklang des ersten Tages mit Brettspielen, Konsolenecke, Multiplayer-Games und Vernetzung.
+LOCATION:Gebäude 29, Großer Hörsaal
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (16:50 Uhr) für Informatik-Spieleabend
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:di-understanding-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261006T110000
+DTEND:20261006T130000
+SUMMARY:FaRaFIN: Understanding Magdeburg
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 10:50 Uhr!\nOrt: Gebäude 29, Großer Hörsaal\nZuständig: Magnus, Support Internationals (SI@FIN), DAAD FIT\nInteraktiver Workshop und Austausch für internationale Studierende zum Ankommen in Magdeburg: Den neuen Wohnort, die Stadt und die Menschen vor Ort verstehen, Alltagstipps erhalten und gemeinsam vernetzen (inkl. Onboarding-Spiel „Alex' Neuanfang“).
+LOCATION:Gebäude 29, Großer Hörsaal
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (10:50 Uhr) für Understanding Magdeburg
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:di-1-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261006T130000
+DTEND:20261006T134500
+SUMMARY:FaRaFIN: Kurzpräsentationen Teil I
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 12:50 Uhr!\nOrt: Gebäude 29, Großer Hörsaal\nZuständig: Emin (Moderation), Claudia, Dr. Christian Beyer, regiocom SE, Jana Görs (QM)\nImpulsvorträge und Unternehmensvorstellung vor Beginn der Stundenplanerstellung.
+LOCATION:Gebäude 29, Großer Hörsaal
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (12:50 Uhr) für Kurzpräsentationen Teil I
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:di-2-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261006T134500
+DTEND:20261006T190000
+SUMMARY:FaRaFIN: Bachelor Studiumsplanung.exe (Fachräume)
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 13:35 Uhr!\nOrt: Gebäude 29 & Gebäude 20 (Fachseminarräume)\nZuständig: Emin (Gesamtleitung), Fach-Mentoren pro Raum, Claudia & Darija (BiBa)\nKerntag der E-Woche: Stundenplanerstellung, LSF-Einführung, Prüfungsordnung und Modulbelegung.
+LOCATION:Gebäude 29 & Gebäude 20 (Fachseminarräume)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (13:35 Uhr) für Bachelor Studiumsplanung.exe (Fachräume)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:di-3-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261006T190000
+DTEND:20261006T200000
+SUMMARY:FaRaFIN: Legendäre Instaparty
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 18:50 Uhr!\nOrt: Gebäude 29, Innenhof & Foyer\nZuständig: Diana, Lukas, Lars, Bar-Team, Grill-Team\nGroße Fachschaftsparty im Innenhof von Gebäude 29 mit Live-DJ, Grill mit Bratwurst sowie veganen und vegetarischen Optionen. Mit freundlicher Unterstützung von Plasmaservice Europe.
+LOCATION:Gebäude 29, Innenhof & Foyer
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (18:50 Uhr) für Legendäre Instaparty
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mi-1-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261007T090000
+DTEND:20261007T093000
+SUMMARY:FaRaFIN: International Welcome & Orientation
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 08:50 Uhr!\nOrt: Gebäude 29, Großer Hörsaal\nZuständig: Studiendekanat, Claudia Krull, FaRaFIN, Christin Gebauer\nOffizielle Begrüßung aller neuen Master- und internationalen Studierenden. Zentrale Anlaufstellen für Visum, Prüfungsamt und Nachzügler.
+LOCATION:Gebäude 29, Großer Hörsaal
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (08:50 Uhr) für International Welcome & Orientation
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mi-2-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261007T093000
+DTEND:20261007T120000
+SUMMARY:FaRaFIN: Master Studiumsplanung.exe
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 09:20 Uhr!\nOrt: Gebäude 29, Großer Hörsaal & Seminarräume\nZuständig: Claudia, Magnus, Simin, Emin, Master-Mentoren\nFachspezifische Studienplanung auf Englisch für MDKE (Data Science), MDE (Digital Engineering) und Visual Computing.
+LOCATION:Gebäude 29, Großer Hörsaal & Seminarräume
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (09:20 Uhr) für Master Studiumsplanung.exe
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mi-3-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261007T130000
+DTEND:20261007T134500
+SUMMARY:FaRaFIN: Kurzpräsentationen Teil II
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 12:50 Uhr!\nOrt: Gebäude 29, Großer Hörsaal\nZuständig: Emin (Moderation), ArbeiterKind.de, Kamelia Dobreva (FDIBA), Studentenwerk\nVorstellung von ArbeiterKind.de, dem deutsch-bulgarischen Doppelabschluss FDIBA und Sozialberatung des Studentenwerks.
+LOCATION:Gebäude 29, Großer Hörsaal
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (12:50 Uhr) für Kurzpräsentationen Teil II
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mi-4-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261007T134500
+DTEND:20261007T183000
+SUMMARY:FaRaFIN: Stadtrallye (Bilingual DE/EN)
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 13:35 Uhr!\nOrt: Magdeburg Innenstadt, Domplatz & Elbufer\nZuständig: Davide (Leitung), Timon Christ (regiocom), Mentoren-Teams\nErkundung der Stadt Magdeburg mit Fotospots, Elbpromenade, Kultur-Rätseln und exklusiver regiocom Challenge-Station.
+LOCATION:Magdeburg Innenstadt, Domplatz & Elbufer
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (13:35 Uhr) für Stadtrallye (Bilingual DE/EN)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mi-5-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261007T200000
+DTEND:20261007T210000
+SUMMARY:FaRaFIN: Offizielle Ersti-Party der OvGU
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 19:50 Uhr!\nOrt: Festung Mark, Hohepfortewall 1\nZuständig: FaRaFIN, Festung Mark Event-Team\nDie offizielle Erstsemesterparty an der Magdeburger Eventlocation Festung Mark. Kommt zusammen mit euren Mitstudierenden und feiert den Semesterstart!
+LOCATION:Festung Mark, Hohepfortewall 1
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (19:50 Uhr) für Offizielle Ersti-Party der OvGU
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:do-1-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261008T100000
+DTEND:20261008T110000
+SUMMARY:FaRaFIN: Kater-Frühstück für Mentoren & Helfer
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 09:50 Uhr!\nOrt: Gebäude 29, FaRaFIN-Büro\nZuständig: FaRaFIN Orga-Team\nGemeinsames Frühstück, Kaffee und kurzes Lage-Briefing für Mentoren und Helfer.
+LOCATION:Gebäude 29, FaRaFIN-Büro
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (09:50 Uhr) für Kater-Frühstück für Mentoren & Helfer
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:do-2-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261008T110000
+DTEND:20261008T150000
+SUMMARY:FaRaFIN: Markt der Möglichkeiten der OVGU
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 10:50 Uhr!\nOrt: Gebäude 22, Innenhof & Foyer\nZuständig: FaRaFIN Stand-Team, OVGU Zentral\nGroße Hochschulmesse für studentische Initiativen, Sportgruppen, Vereine und Gremien.
+LOCATION:Gebäude 22, Innenhof & Foyer
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (10:50 Uhr) für Markt der Möglichkeiten der OVGU
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:do-3-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261008T190000
+DTEND:20261008T200000
+SUMMARY:FaRaFIN: Kneipentour & Barabend
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 18:50 Uhr!\nOrt: Treffpunkt Vorplatz G29, Richtung Hasselbachplatz\nZuständig: Diana (Koordination), Mentoren-Teams\nTraditionelle Kneipentour durch Magdeburger Bars und Kneipen rund um den Hasselbachplatz. Zieht mit uns durch Magdeburgs Kneipenszene und lernt andere Fakultäten kennen.
+LOCATION:Treffpunkt Vorplatz G29, Richtung Hasselbachplatz
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (18:50 Uhr) für Kneipentour & Barabend
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fr-1-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261009T100000
+DTEND:20261009T140000
+SUMMARY:FaRaFIN: Master-Brunch
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 09:50 Uhr!\nOrt: Gebäude 29, Großer Hörsaal\nZuständig: Simin, Helfer-Team\nGemeinsames Mitbring-Frühstück und Networking für Masterstudierende und internationale Erstis.
+LOCATION:Gebäude 29, Großer Hörsaal
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (09:50 Uhr) für Master-Brunch
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fr-2-202610@farafin.de
+DTSTAMP:20260915T195705Z
+DTSTART:20261009T150000
+DTEND:20261009T160000
+SUMMARY:FaRaFIN: Abschlussgrillen im Nordpark
+DESCRIPTION:WICHTIG: Treffzeit (-10 Min) ist 14:50 Uhr!\nOrt: Nordpark Magdeburg (Grillwiese)\nZuständig: Lars, Lukas, Kooperation FaRaMath, Grill-Team\nGroßes Abschlussgrillen der E-Woche gemeinsam mit der Fachschaft Mathematik (FMA / FaRaMath).
+LOCATION:Nordpark Magdeburg (Grillwiese)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Erinnerung: Treffzeit in 10 Minuten (14:50 Uhr) für Abschlussgrillen im Nordpark
+END:VALARM
+END:VEVENT
+END:VCALENDAR
