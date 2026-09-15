@@ -1,18 +1,28 @@
 {
+  "id": "farafin-e-woche-mentoren",
   "name": "FaRaFIN E-Woche: Mentoren-Portal",
   "short_name": "E-Woche Mentoren",
-  "description": "Interner Dienstplan, Notfallkette und Lageplan für FIN-Mentoren",
+  "description": "Interner Dienstplan, 10-Minuten-Treffzeiten, Notfallkette und Lageplan für FIN-Mentoren",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#090d16",
   "theme_color": "#3567b0",
   "orientation": "portrait-primary",
+  "lang": "de",
+  "categories": ["education", "utilities"],
   "icons": [
     {
       "src": "/app_icon_farafin.png",
       "sizes": "192x192 512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/app_icon_farafin.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

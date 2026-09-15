@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-farafin: #3567b0;
   --color-farafin-hover: #2b5491;

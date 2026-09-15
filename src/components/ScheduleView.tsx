@@ -93,10 +93,10 @@ export const ScheduleView: FC<ScheduleViewProps> = ({
       <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
         <button
           onClick={() => setSelectedDayId('all')}
-          className={`px-3 py-1.5 rounded-md text-xs cursor-pointer shrink-0 transition-colors ${
+          className={`px-3 py-1.5 rounded-lg text-xs cursor-pointer shrink-0 transition-colors font-medium ${
             selectedDayId === 'all'
-              ? 'bg-farafin text-white font-semibold shadow-sm'
-              : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
+              ? 'bg-farafin text-white font-bold shadow-sm'
+              : 'bg-slate-100 dark:bg-zinc-900 text-slate-700 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 border border-slate-200 dark:border-zinc-800'
           }`}
         >
           Ganze Woche
@@ -105,10 +105,10 @@ export const ScheduleView: FC<ScheduleViewProps> = ({
           <button
             key={day.id}
             onClick={() => setSelectedDayId(day.id)}
-            className={`px-3 py-1.5 rounded-md text-xs cursor-pointer shrink-0 transition-colors ${
+            className={`px-3 py-1.5 rounded-lg text-xs cursor-pointer shrink-0 transition-colors font-medium ${
               selectedDayId === day.id
-                ? 'bg-farafin text-white font-semibold shadow-sm'
-                : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
+                ? 'bg-farafin text-white font-bold shadow-sm'
+                : 'bg-slate-100 dark:bg-zinc-900 text-slate-700 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 border border-slate-200 dark:border-zinc-800'
             }`}
           >
             <span>{day.dayName}</span>
@@ -117,16 +117,16 @@ export const ScheduleView: FC<ScheduleViewProps> = ({
         ))}
       </div>
 
-      {/* Category Pills (Subdued, simple) */}
+      {/* Category Pills */}
       <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
         {categories.map(cat => (
           <button
             key={cat.id}
             onClick={() => setSelectedCategory(cat.id)}
-            className={`px-2.5 py-1 rounded text-xs cursor-pointer shrink-0 transition-colors ${
+            className={`px-2.5 py-1 rounded-lg text-xs cursor-pointer shrink-0 transition-colors ${
               selectedCategory === cat.id
-                ? 'bg-farafin/25 text-blue-200 font-medium border border-farafin/40'
-                : 'text-zinc-400 hover:text-zinc-200'
+                ? 'bg-farafin/15 text-farafin dark:text-blue-200 font-bold border border-farafin/40 shadow-xs'
+                : 'bg-slate-100 dark:bg-zinc-900/60 text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200'
             }`}
           >
             {cat.label}
@@ -136,39 +136,39 @@ export const ScheduleView: FC<ScheduleViewProps> = ({
 
       {/* Results note if searching */}
       {searchQuery && (
-        <div className="text-xs text-zinc-400 bg-zinc-900 border border-zinc-800 px-3 py-2 rounded-md flex items-center justify-between">
-          <span>Suchergebnisse für: <strong className="text-zinc-200">"{searchQuery}"</strong></span>
+        <div className="text-xs text-slate-700 dark:text-zinc-400 bg-slate-100 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 px-3.5 py-2 rounded-xl flex items-center justify-between">
+          <span>Suchergebnisse für: <strong className="text-slate-900 dark:text-zinc-200">"{searchQuery}"</strong></span>
           <span>{filteredDays.reduce((acc, d) => acc + d.items.length, 0)} Treffer</span>
         </div>
       )}
 
       {/* Days & Events */}
       {filteredDays.length === 0 ? (
-        <div className="text-center py-12 bg-zinc-900/40 border border-zinc-800/80 rounded-xl">
-          <Info className="w-6 h-6 text-zinc-500 mx-auto mb-2" />
-          <p className="text-sm text-zinc-300 font-medium">Keine Einträge für diese Filterkombination gefunden</p>
-          <p className="text-xs text-zinc-500 mt-1">Überprüfe deine Suchbegriffe oder wähle "Alle" aus.</p>
+        <div className="text-center py-12 bg-white dark:bg-zinc-900/40 border border-slate-200 dark:border-zinc-800/80 rounded-2xl">
+          <Info className="w-6 h-6 text-slate-400 dark:text-zinc-500 mx-auto mb-2" />
+          <p className="text-sm text-slate-800 dark:text-zinc-300 font-semibold">Keine Einträge für diese Filterkombination gefunden</p>
+          <p className="text-xs text-slate-500 dark:text-zinc-500 mt-1">Überprüfe deine Suchbegriffe oder wähle "Alle" aus.</p>
         </div>
       ) : (
         filteredDays.map(day => (
           <div key={day.id} className="space-y-3">
             {/* Day Header */}
-            <div className="flex items-baseline justify-between border-b border-zinc-800 pb-2 pt-2">
+            <div className="flex items-baseline justify-between border-b border-slate-200 dark:border-zinc-800 pb-2 pt-2">
               <div className="flex items-center gap-2">
-                <h2 className="text-base sm:text-lg font-semibold text-zinc-100">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-zinc-100">
                   {day.dayName}, {day.date}
                 </h2>
-                <span className="text-xs text-zinc-400 hidden sm:inline-block">
+                <span className="text-xs text-slate-500 dark:text-zinc-400 hidden sm:inline-block">
                   • {day.focus}
                 </span>
               </div>
-              <span className="text-xs text-zinc-500">
+              <span className="text-xs text-slate-500 dark:text-zinc-500 font-medium">
                 {day.items.length} {day.items.length === 1 ? 'Eintrag' : 'Einträge'}
               </span>
             </div>
 
             {/* Event Cards */}
-            <div className="grid gap-2.5">
+            <div className="grid gap-3">
               {day.items.map(item => (
                 <ScheduleCard
                   key={item.id}
@@ -197,16 +197,16 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, dateStr, checkedItems, onTo
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="bg-zinc-900/60 border border-zinc-800/90 rounded-lg p-4 transition-colors hover:border-zinc-700">
-      {/* Top Header Row */}
-      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+    <div className="bg-white dark:bg-zinc-900/70 border border-slate-200 dark:border-zinc-800 rounded-xl p-4 sm:p-5 transition-all hover:border-slate-300 dark:hover:border-zinc-700 shadow-xs dark:shadow-none">
+      {/* Top Header Row with Red Meeting Time */}
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
         <div className="flex items-center gap-2">
-          {/* Red Meeting Time (10 min earlier) */}
-          <span className="text-xs font-mono font-bold text-red-400 bg-red-950/60 border border-red-800/60 px-2 py-0.5 rounded">
+          {/* Zeiten rot markiert */}
+          <span className="text-xs font-mono font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/60 border border-red-200 dark:border-red-800/60 px-2 py-0.5 rounded-md">
             Treffen: {item.meetingTime}
           </span>
-          <span className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded border border-zinc-700/60">
-            <Clock className="w-3 h-3 text-zinc-500" />
+          <span className="flex items-center gap-1.5 text-xs font-mono text-slate-600 dark:text-zinc-400 bg-slate-100 dark:bg-zinc-800/80 px-2 py-0.5 rounded-md border border-slate-200 dark:border-zinc-700/60">
+            <Clock className="w-3 h-3 text-slate-400 dark:text-zinc-500" />
             {item.time}
           </span>
         </div>
@@ -215,53 +215,57 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, dateStr, checkedItems, onTo
           {item.audiences.map(aud => (
             <span
               key={aud}
-              className={`text-[10px] uppercase font-mono font-medium px-1.5 py-0.5 rounded border ${
+              className={`text-[10px] uppercase font-mono font-bold px-1.5 py-0.5 rounded border ${
                 aud === 'bachelor'
-                  ? 'bg-blue-950/60 text-blue-300 border-blue-800/50'
+                  ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800/50'
                   : aud === 'master'
-                  ? 'bg-purple-950/60 text-purple-300 border-purple-800/50'
-                  : 'bg-emerald-950/60 text-emerald-300 border-emerald-800/50'
+                  ? 'bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800/50'
+                  : 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/50'
               }`}
             >
               {aud === 'international' ? 'International' : aud}
             </span>
           ))}
           {item.language === 'en' && (
-            <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded border bg-amber-950/60 text-amber-300 border-amber-800/50" title="Veranstaltungssprache: Englisch / English only">
+            <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800/50" title="Veranstaltungssprache: Englisch / English only">
               🇬🇧 English
             </span>
           )}
           {item.language === 'bilingual' && (
-            <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded border bg-teal-950/60 text-teal-300 border-teal-800/50" title="Bilingual: Deutsch & Englisch / Bilingual DE & EN">
+            <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800/50" title="Bilingual: Deutsch & Englisch / Bilingual DE & EN">
               🔀 Bilingual
             </span>
           )}
           {item.language === 'de' && (
-            <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded border bg-zinc-800/60 text-zinc-400 border-zinc-700/50" title="Veranstaltungssprache: Deutsch">
+            <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded border bg-slate-100 dark:bg-zinc-800/60 text-slate-600 dark:text-zinc-400 border-slate-200 dark:border-zinc-700/50" title="Veranstaltungssprache: Deutsch">
               🇩🇪 DE
             </span>
           )}
-          <span className="flex items-center gap-1 text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-800">
-            <MapPin className="w-3 h-3 text-zinc-400" />
-            {item.roomBadge}
-          </span>
         </div>
       </div>
 
       {/* Title */}
-      <h3 className="text-base font-semibold text-zinc-100 tracking-tight mb-1">
+      <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 tracking-tight mb-1.5">
         {item.title}
       </h3>
 
-      {/* Location with Direct Map Links */}
-      <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-400 mb-2">
-        <span>Ort: {item.location}</span>
+      {/* Ort & Raum auffällig rot markiert */}
+      <div className="flex flex-wrap items-center gap-2 text-xs mb-3">
+        <span className="font-semibold text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/40 px-2 py-1 rounded-md border border-red-200 dark:border-red-800/50 inline-flex items-center gap-1.5">
+          <MapPin className="w-3.5 h-3.5 text-red-600 dark:text-red-400 shrink-0" />
+          <span>Ort: {item.location}</span>
+        </span>
+        <span className="font-mono text-[11px] font-bold text-red-800 dark:text-red-200 bg-red-100 dark:bg-red-900/60 px-2 py-0.5 rounded border border-red-300 dark:border-red-800">
+          {item.roomBadge}
+        </span>
+
+        {/* Direct Map Links */}
         <div className="inline-flex items-center gap-1.5 ml-auto">
           <a
             href={item.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] text-zinc-300 hover:text-white bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/80"
+            className="text-[11px] font-medium text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 px-2 py-1 rounded border border-slate-200 dark:border-zinc-700/80 transition-colors"
           >
             Google Maps
           </a>
@@ -269,7 +273,7 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, dateStr, checkedItems, onTo
             href={item.appleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] text-zinc-300 hover:text-white bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/80"
+            className="text-[11px] font-medium text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 px-2 py-1 rounded border border-slate-200 dark:border-zinc-700/80 transition-colors"
           >
             Apple Karten
           </a>
@@ -277,49 +281,49 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, dateStr, checkedItems, onTo
       </div>
 
       {/* Responsible People */}
-      <div className="flex items-center gap-1.5 text-xs text-zinc-300 mb-2.5">
-        <Users className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
-        <span className="text-zinc-500">Zuständig:</span>
-        <span className="font-medium text-zinc-300">{item.responsible.join(', ')}</span>
+      <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-zinc-300 mb-2.5">
+        <Users className="w-3.5 h-3.5 text-slate-400 dark:text-zinc-500 shrink-0" />
+        <span className="text-slate-500 dark:text-zinc-500">Zuständig:</span>
+        <span className="font-medium text-slate-800 dark:text-zinc-200">{item.responsible.join(', ')}</span>
       </div>
 
       {/* Description */}
-      <p className="text-xs text-zinc-300 leading-relaxed mb-2.5">
+      <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed mb-3">
         {item.description}
       </p>
 
       {/* Important Note */}
       {item.importantNote && (
-        <div className="bg-zinc-800/50 border-l-2 border-amber-500/80 px-3 py-2 rounded-r text-xs text-zinc-300 mb-2.5">
-          <strong className="text-zinc-200 block mb-0.5">Wichtiger Hinweis:</strong>
+        <div className="bg-amber-500/10 border-l-3 border-amber-500 px-3 py-2 rounded-r-md text-xs text-slate-700 dark:text-zinc-300 mb-2.5">
+          <strong className="text-slate-900 dark:text-zinc-100 block mb-0.5">Wichtiger Hinweis:</strong>
           <span>{item.importantNote}</span>
         </div>
       )}
 
       {/* Mentor Instructions */}
       {item.mentorInstructions && (
-        <div className="bg-zinc-800/40 border-l-2 border-zinc-400 px-3 py-2 rounded-r text-xs text-zinc-300 mb-2.5">
-          <strong className="text-zinc-200 block mb-0.5">Hinweis für Mentoren:</strong>
+        <div className="bg-slate-100 dark:bg-zinc-800/40 border-l-3 border-slate-400 dark:border-zinc-400 px-3 py-2 rounded-r-md text-xs text-slate-700 dark:text-zinc-300 mb-2.5">
+          <strong className="text-slate-900 dark:text-zinc-100 block mb-0.5">Hinweis für Mentoren:</strong>
           <span>{item.mentorInstructions}</span>
         </div>
       )}
 
       {/* 1-Click Calendar Actions */}
-      <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-zinc-800/80 mb-2">
-        <span className="text-[11px] text-zinc-500 font-medium">Kalender (-10 Min Alarm):</span>
+      <div className="flex flex-wrap items-center gap-2 pt-2.5 border-t border-slate-200 dark:border-zinc-800/80 mb-2">
+        <span className="text-[11px] text-slate-500 dark:text-zinc-500 font-medium">Kalender (-10 Min Alarm):</span>
         <button
           onClick={() => downloadICSFile(generateSingleICS(item, dateStr), `FaRaFIN-${item.id}.ics`)}
-          className="text-[11px] text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 px-2 py-0.5 rounded border border-zinc-700 transition-colors inline-flex items-center gap-1 cursor-pointer"
+          className="text-[11px] text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 px-2.5 py-1 rounded-md border border-slate-200 dark:border-zinc-700 transition-colors inline-flex items-center gap-1 cursor-pointer font-medium"
           title="Als .ics-Datei mit 10-Min-Alarm herunterladen"
         >
-          <Calendar className="w-3 h-3 text-zinc-400" />
+          <Calendar className="w-3 h-3 text-farafin dark:text-zinc-400" />
           <span>In Kalender (.ics)</span>
         </button>
         <a
           href={getGoogleCalendarUrl(item, dateStr)}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[11px] text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 px-2 py-0.5 rounded border border-zinc-700 transition-colors inline-flex items-center gap-1"
+          className="text-[11px] text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 px-2.5 py-1 rounded-md border border-slate-200 dark:border-zinc-700 transition-colors inline-flex items-center gap-1 font-medium"
           title="Direkt zu Google Kalender hinzufügen"
         >
           <span>Google Kalender</span>
@@ -328,13 +332,13 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, dateStr, checkedItems, onTo
 
       {/* Checklist */}
       {item.checklist && item.checklist.length > 0 && (
-        <div className="mt-3 pt-2.5 border-t border-zinc-800/80">
+        <div className="mt-3 pt-2.5 border-t border-slate-200 dark:border-zinc-800/80">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="flex items-center justify-between w-full text-xs font-medium text-zinc-400 hover:text-zinc-200 cursor-pointer py-0.5"
+            className="flex items-center justify-between w-full text-xs font-semibold text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 cursor-pointer py-0.5"
           >
             <span>Aufgaben ({item.checklist.length})</span>
-            <span className="text-[11px] text-zinc-500">{expanded ? 'Schließen' : 'Anzeigen'}</span>
+            <span className="text-[11px] font-normal text-slate-400 dark:text-zinc-500">{expanded ? 'Schließen' : 'Anzeigen'}</span>
           </button>
 
           {expanded && (
@@ -346,16 +350,16 @@ const ScheduleCard: FC<ScheduleCardProps> = ({ item, dateStr, checkedItems, onTo
                   <div
                     key={taskId}
                     onClick={() => onToggleCheck(taskId)}
-                    className="flex items-start gap-2 text-xs text-zinc-300 cursor-pointer select-none py-0.5"
+                    className="flex items-start gap-2 text-xs text-slate-700 dark:text-zinc-300 cursor-pointer select-none py-0.5"
                   >
-                    <button type="button" className="shrink-0 mt-0.5 text-zinc-400">
+                    <button type="button" className="shrink-0 mt-0.5 text-slate-500 dark:text-zinc-400">
                       {isDone ? (
-                        <CheckSquare className="w-3.5 h-3.5 text-zinc-100" />
+                        <CheckSquare className="w-3.5 h-3.5 text-emerald-600 dark:text-zinc-100" />
                       ) : (
-                        <Square className="w-3.5 h-3.5 text-zinc-600" />
+                        <Square className="w-3.5 h-3.5 text-slate-400 dark:text-zinc-600" />
                       )}
                     </button>
-                    <span className={isDone ? 'line-through text-zinc-500' : 'text-zinc-300'}>
+                    <span className={isDone ? 'line-through text-slate-400 dark:text-zinc-500' : 'text-slate-700 dark:text-zinc-300'}>
                       {task}
                     </span>
                   </div>
